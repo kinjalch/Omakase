@@ -8,29 +8,30 @@ class SearchApp extends React.Component {
         this.state = {
             page: 'locationSearch',
             location: null,
-            foodType: null
+            foodType: null,
         };
 
-        this.handleLocationChange = this.handleLocationChange.bind(this);
+        this.handleLocationChoice = this.handleLocationChoice.bind(this);
         this.handleLocationSearch = this.handleLocationSearch.bind(this);
-        this.handleFoodChange = this.handleFoodChange.bind(this);
+        this.handleFoodChoice = this.handleFoodChoice.bind(this);
         this.handleFoodSearch = this.handleFoodSearch.bind(this);
         this.navigateToLocationSearch = this.navigateToLocationSearch.bind(this);
     }
 
-    handleLocationChange(evt) {
-        this.setState({location: evt.target.value});
+    handleLocationChoice(choice) {
+        this.setState({location: choice});
     }
 
     handleLocationSearch() {
         this.setState({page: 'foodSearch'});
     }
 
-    handleFoodChange(evt) {
-        this.setState({foodType: evt.target.value});
+    handleFoodChoice(choice) {
+        this.setState({foodType: choice});
     }
 
     handleFoodSearch() {
+        console.log(this.state.location, this.state.foodType)
         this.setState({page: 'foodResult'});
     }
 
@@ -41,19 +42,23 @@ class SearchApp extends React.Component {
     render() {
         if (this.state.page === 'locationSearch') {
             return <LocationSearchBar
-                        handleLocationChange={this.handleLocationChange}
+                        handleLocationChoice={this.handleLocationChoice}
                         handleLocationSearch={this.handleLocationSearch}
                     />;
         }
         if (this.state.page === 'foodSearch') {
             return <FoodSearchBar
-                        handleFoodChange={this.handleFoodChange}
+                        handleFoodChoice={this.handleFoodChoice}
                         handleFoodSearch={this.handleFoodSearch}
                         navigateToLocationSearch={this.navigateToLocationSearch}
                     />;
         }
         if (this.state.page === 'foodResult') {
-            return <h1> Here is where you will get a result </h1>;
+            return (
+                <h1>
+                    THIS IS WHERE YOU GET YOUR RESULT
+                </h1>
+            );
         }
     }
 };
