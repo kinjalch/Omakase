@@ -1,6 +1,6 @@
 import React from 'react';
 import LocationSearchBar from './LocationSearchBar';
-// import FoodSearchBar from './FoodSearchBar';
+import FoodSearchBar from './FoodSearchBar';
 
 class SearchApp extends React.Component {
     constructor(props) {
