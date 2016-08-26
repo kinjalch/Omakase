@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationSearchBar from './LocationSearchBar';
 import FoodSearchBar from './FoodSearchBar';
+import cityNames from './data/dummyCities';
 
 class SearchApp extends React.Component {
     constructor(props) {
@@ -8,7 +9,8 @@ class SearchApp extends React.Component {
         this.state = {
             page: 'locationSearch',
             location: null,
-            foodType: null
+            cities: cityNames,
+            foodType: null,
         };
 
         this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -41,6 +43,7 @@ class SearchApp extends React.Component {
     render() {
         if (this.state.page === 'locationSearch') {
             return <LocationSearchBar
+                        cities={this.state.cities}
                         handleLocationChange={this.handleLocationChange}
                         handleLocationSearch={this.handleLocationSearch}
                     />;
