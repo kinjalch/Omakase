@@ -11,23 +11,23 @@ class SearchApp extends React.Component {
             foodType: null,
         };
 
-        this.handleLocationChange = this.handleLocationChange.bind(this);
+        this.handleLocationChoice = this.handleLocationChoice.bind(this);
         this.handleLocationSearch = this.handleLocationSearch.bind(this);
-        this.handleFoodChange = this.handleFoodChange.bind(this);
+        this.handleFoodChoice = this.handleFoodChoice.bind(this);
         this.handleFoodSearch = this.handleFoodSearch.bind(this);
         this.navigateToLocationSearch = this.navigateToLocationSearch.bind(this);
     }
 
-    handleLocationChange(evt) {
-        this.setState({location: evt.target.value});
+    handleLocationChoice(choice) {
+        this.setState({location: choice});
     }
 
     handleLocationSearch() {
         this.setState({page: 'foodSearch'});
     }
 
-    handleFoodChange(evt) {
-        this.setState({foodType: evt.target.value});
+    handleFoodChoice(choice) {
+        this.setState({foodType: choice});
     }
 
     handleFoodSearch() {
@@ -41,13 +41,13 @@ class SearchApp extends React.Component {
     render() {
         if (this.state.page === 'locationSearch') {
             return <LocationSearchBar
-                        handleLocationChange={this.handleLocationChange}
+                        handleLocationChoice={this.handleLocationChoice}
                         handleLocationSearch={this.handleLocationSearch}
                     />;
         }
         if (this.state.page === 'foodSearch') {
             return <FoodSearchBar
-                        handleFoodChange={this.handleFoodChange}
+                        handleFoodChoice={this.handleFoodChoice}
                         handleFoodSearch={this.handleFoodSearch}
                         navigateToLocationSearch={this.navigateToLocationSearch}
                     />;
