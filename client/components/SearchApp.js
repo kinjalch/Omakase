@@ -31,6 +31,7 @@ class SearchApp extends React.Component {
     }
 
     handleFoodSearch() {
+        console.log(this.state.location, this.state.foodType)
         this.setState({page: 'foodResult'});
     }
 
@@ -53,7 +54,11 @@ class SearchApp extends React.Component {
                     />;
         }
         if (this.state.page === 'foodResult') {
-            return <h1> Here is where you will get a result </h1>;
+            return (
+                <h1>
+                    THIS IS WHERE YOU GET YOUR RESULT
+                </h1>
+            );
         }
     }
 };
