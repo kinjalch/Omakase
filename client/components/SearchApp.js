@@ -43,17 +43,31 @@ class SearchApp extends React.Component {
 
     render() {
         if (this.state.page === 'locationSearch') {
-            return <LocationSearchBar
+            return (
+                <div>
+                    <h1> Where are you? </h1>
+                    <LocationSearchBar
+                        cityPlaceholder="Choose a city..."
                         handleLocationChoice={this.handleLocationChoice}
-                        handleLocationSearch={this.handleLocationSearch}
-                    />;
+                    />
+                    <button onClick={() => {this.handleLocationSearch()}}> Find Food Near Me </button>
+                </div>
+            );
         }
         if (this.state.page === 'foodSearch') {
-            return <FoodSearchBar
-                        handleFoodChoice={this.handleFoodChoice}
-                        handleFoodSearch={this.handleFoodSearch}
-                        navigateToLocationSearch={this.navigateToLocationSearch}
-                    />;
+            return (
+                <div>
+                    <div>
+                        <h1> What are you craving? </h1>
+                        <FoodSearchBar
+                            foodPlaceholder="I'm craving..."
+                            handleFoodChoice={this.handleFoodChoice}
+                        />
+                        <button onClick={() => {this.handleFoodSearch()}}> Curate The Best </button>
+                    </div>
+                    <button onClick={() => {this.navigateToLocationSearch()}}> Back </button>
+                </div>
+            );
         }
         if (this.state.page === 'foodResult') {
             return <FoodResult
