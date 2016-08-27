@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import LocationSearchBar from './LocationSearchBar';
 import FoodSearchBar from './FoodSearchBar';
 import FoodResult from './FoodResult';
@@ -45,18 +46,22 @@ class SearchApp extends React.Component {
         if (this.state.page === 'locationSearch') {
             return (
                 <div>
-                    <h1> Where are you? </h1>
-                    <LocationSearchBar
-                        cityPlaceholder="Choose a city..."
-                        handleLocationChoice={this.handleLocationChoice}
-                    />
-                    <button onClick={() => {this.handleLocationSearch()}}> Find Food Near Me </button>
+                    <Link to={'/vote'}> Go Vote </Link>
+                    <div>
+                        <h1> Where are you? </h1>
+                        <LocationSearchBar
+                            cityPlaceholder="Choose a city..."
+                            handleLocationChoice={this.handleLocationChoice}
+                        />
+                        <button onClick={() => {this.handleLocationSearch()}}> Find Food Near Me </button>
+                    </div>
                 </div>
             );
         }
         if (this.state.page === 'foodSearch') {
             return (
                 <div>
+                    <Link to={'/vote'}> Go Vote </Link>
                     <div>
                         <h1> What are you craving? </h1>
                         <FoodSearchBar
@@ -70,11 +75,16 @@ class SearchApp extends React.Component {
             );
         }
         if (this.state.page === 'foodResult') {
-            return <FoodResult
-                        location={this.state.location}
-                        foodType={this.state.foodType}
-                        result={results[this.state.foodType.label]}
-                    />;
+            return (
+                <div>
+                    <Link to={'/vote'}> Go Vote </Link>
+                    <FoodResult
+                                location={this.state.location}
+                                foodType={this.state.foodType}
+                                result={results[this.state.foodType.label]}
+                    />
+                </div>
+            );
         }
     }
 };
