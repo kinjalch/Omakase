@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import VoteSurvey from './VoteSurvey';
 
 class VoteApp extends React.Component {
@@ -38,18 +39,26 @@ class VoteApp extends React.Component {
     render() {
         if (this.state.page === 'voteSurvey') {
             return (
-                <VoteSurvey
-                    handleFoodChoice={this.handleFoodChoice}
-                    handleLocationChoice={this.handleLocationChoice}
-                    hasLocationChoice={this.state.hasLocationChoice}
-                    handleRestaurantChoice={this.handleRestaurantChoice}
-                    handleVote={this.handleVote}
-                />
+                <div>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/'}>Search for Food</Link>
+                    <VoteSurvey
+                        handleFoodChoice={this.handleFoodChoice}
+                        handleLocationChoice={this.handleLocationChoice}
+                        hasLocationChoice={this.state.hasLocationChoice}
+                        handleRestaurantChoice={this.handleRestaurantChoice}
+                        handleVote={this.handleVote}
+                    />
+                </div>
             );
         }
         if (this.state.page === 'userProfile') {
             return (
-                <h1> You voted! </h1>
+                <div>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/'}>Search for Food</Link>
+                    <h1> You voted! </h1>
+                </div>
             );
         }
     }

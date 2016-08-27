@@ -1,7 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import SearchApp from "./components/SearchApp.js";
-import VoteApp from "./components/VoteApp.js";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router';
+import SearchApp from './components/SearchApp.js';
+import VoteApp from './components/VoteApp.js';
 
-// ReactDOM.render(<SearchApp />, document.getElementById("app"));
-ReactDOM.render(<VoteApp />, document.getElementById("app"));
+ReactDOM.render((
+    <Router history={hashHistory}>
+        <Route path="/" component={SearchApp} />
+        <Route path="/vote" component={VoteApp} />
+    </Router>
+), document.getElementById("app"));
