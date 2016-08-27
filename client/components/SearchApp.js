@@ -2,6 +2,7 @@ import React from 'react';
 import LocationSearchBar from './LocationSearchBar';
 import FoodSearchBar from './FoodSearchBar';
 import FoodResult from './FoodResult';
+import results from '../data/dummyResults';
 
 class SearchApp extends React.Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class SearchApp extends React.Component {
             page: 'locationSearch',
             location: null,
             foodType: null,
+            result: null
         };
 
         this.handleLocationChoice = this.handleLocationChoice.bind(this);
@@ -32,7 +34,6 @@ class SearchApp extends React.Component {
     }
 
     handleFoodSearch() {
-        console.log(this.state.location, this.state.foodType)
         this.setState({page: 'foodResult'});
     }
 
@@ -55,11 +56,11 @@ class SearchApp extends React.Component {
                     />;
         }
         if (this.state.page === 'foodResult') {
-          return (
-            <div>
-             <FoodResult/>
-            </div>
-            );
+            return <FoodResult
+                        location={this.state.location}
+                        foodType={this.state.foodType}
+                        result={results[this.state.foodType.label]}
+                    />;
         }
     }
 };

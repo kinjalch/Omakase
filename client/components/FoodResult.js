@@ -1,11 +1,13 @@
 import React from 'react';
 
-var FoodResult = ({result}) => (
-  <div id='food-result'>
-    <img src='http://images.media-allrecipes.com/userphotos/250x250/606975.jpg'/>
-    <div>Restaurant Info</div>
-    <div>Dish Name</div>
-  </div>
+var FoodResult = (props) => (
+    <div id='food-result'>
+        <h1>Best {props.foodType.value.foodName.toLowerCase()} in {props.location.label}:</h1>
+        <img src={props.foodType.value.image}/>
+        <div>{props.result.restaurant}</div>
+        <div>{props.result.address}</div>
+        <div>{props.result.hours}</div>
+    </div>
 );
 
 export default FoodResult;
