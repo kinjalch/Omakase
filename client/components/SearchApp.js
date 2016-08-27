@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationSearchBar from './LocationSearchBar';
 import FoodSearchBar from './FoodSearchBar';
+import FoodResult from './FoodResult';
 
 class SearchApp extends React.Component {
     constructor(props) {
@@ -54,10 +55,10 @@ class SearchApp extends React.Component {
                     />;
         }
         if (this.state.page === 'foodResult') {
-            return (
-                <h1>
-                    THIS IS WHERE YOU GET YOUR RESULT
-                </h1>
+          return (
+            <div>
+             <FoodResult/>
+            </div>
             );
         }
     }
