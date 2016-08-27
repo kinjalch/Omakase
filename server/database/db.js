@@ -70,12 +70,10 @@ knex.ensureSchema = function() {
   			}).then(function(table) {
   				console.log('UsersTable has been created', table)
   			})
+  		}  else {
+  			console.log('UsersDishes table already exists')
   		}
   	})
-
-
-  	
-
 
   	])
 }

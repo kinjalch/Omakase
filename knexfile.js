@@ -1,14 +1,13 @@
-// Update with your config settings.
-
+var path = require('path')
+require('dotenv').config();
 
 module.exports = {
-
   development: {
     client: 'mysql',
     connection: {
       host: 'localhost', //or 127.0.0;.1
-      user: 'root',
-      password: '',
+      user: process.env.db_username,
+      password: process.env.db_password,
       database: 'omakase',
       charset: 'utf8'
     }
