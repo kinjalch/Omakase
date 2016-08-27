@@ -46,7 +46,8 @@ class SearchApp extends React.Component {
         if (this.state.page === 'locationSearch') {
             return (
                 <div>
-                    <Link to={'/vote'}> Go Vote </Link>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/vote'}>Go Vote</Link>
                     <div>
                         <h1> Where are you? </h1>
                         <LocationSearchBar
@@ -61,7 +62,8 @@ class SearchApp extends React.Component {
         if (this.state.page === 'foodSearch') {
             return (
                 <div>
-                    <Link to={'/vote'}> Go Vote </Link>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/vote'}>Go Vote</Link>
                     <div>
                         <h1> What are you craving? </h1>
                         <FoodSearchBar
@@ -77,7 +79,8 @@ class SearchApp extends React.Component {
         if (this.state.page === 'foodResult') {
             return (
                 <div>
-                    <Link to={'/vote'}> Go Vote </Link>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/vote'}>Go Vote</Link>
                     <FoodResult
                                 location={this.state.location}
                                 foodType={this.state.foodType}

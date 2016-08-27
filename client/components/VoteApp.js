@@ -40,7 +40,8 @@ class VoteApp extends React.Component {
         if (this.state.page === 'voteSurvey') {
             return (
                 <div>
-                    <Link to={'/'}> Search for Food </Link>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/'}>Search for Food</Link>
                     <VoteSurvey
                         handleFoodChoice={this.handleFoodChoice}
                         handleLocationChoice={this.handleLocationChoice}
@@ -54,7 +55,8 @@ class VoteApp extends React.Component {
         if (this.state.page === 'userProfile') {
             return (
                 <div>
-                    <Link to={'/'}> Search for Food </Link>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/'}>Search for Food</Link>
                     <h1> You voted! </h1>
                 </div>
             );
