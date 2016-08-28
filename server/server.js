@@ -5,11 +5,15 @@ var cors = require('cors')
 var request = require('request')
 var bodyParser = require('body-parser')
 var db = require('./database/db.js')
+var router = require('./router/searchRouter.js')
 
 app.use(cors())
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../client/')) 
-app.set('port', process.env.PORT || 3000)
+
+app.use('/api/search', router)
+
+app.set('port', process.env.PORT || 3000);
 
 app.listen(app.get('port'), function() {
 	db.ensureSchema()
