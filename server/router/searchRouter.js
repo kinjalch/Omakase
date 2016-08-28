@@ -3,6 +3,6 @@ var controller = require('../controller/search.controller.js');
 
 console.log('we are in router')
 router.get('/dish', controller.search.getDish)
-// router.get('/resturants', controller.getResturants)
+router.get('/resturants', controller.search.getResturants)
 
 module.exports = router;
