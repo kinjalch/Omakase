@@ -18,15 +18,15 @@ searchModel.getAllDishNames = function() {
 	})
 }
 
-searchModel.getArrayOfResturantNames = function() {
-	console.log('we are in searchModel getArrayOfResturantNames')
-	return db('Dishes').where({
-		location_name: 'Santa Monica'
-	}).select('resturant_id').from('Dishes').innerJoin('')
-	.then(function(rows) {
-		return rows;
-	})
-}
+// searchModel.getArrayOfResturantNames = function() {
+// 	console.log('we are in searchModel getArrayOfResturantNames')
+// 	return db('Dishes').where({
+// 		location_name: 'Santa Monica'
+// 	}).select('resturant_id').from('Dishes').innerJoin('')
+// 	.then(function(rows) {
+// 		return rows;
+// 	})
+// }
 
 //wrap db functions in a function fetchResturants and call it in controllers. 
 // then attach it to my routes as my callback
