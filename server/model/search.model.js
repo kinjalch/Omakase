@@ -18,6 +18,8 @@ searchModel.getAllDishNames = function() {
 	})
 }
 
+
+
 //wrap db functions in a function fetchResturants and call it in controllers. 
 // then attach it to my routes as my callback
 
