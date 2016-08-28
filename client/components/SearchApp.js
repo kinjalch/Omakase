@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router';
 import LocationSearchBar from './LocationSearchBar';
 import FoodSearchBar from './FoodSearchBar';
 import FoodResult from './FoodResult';
+import results from '../data/dummyResults';
 
 class SearchApp extends React.Component {
     constructor(props) {
@@ -10,6 +12,7 @@ class SearchApp extends React.Component {
             page: 'locationSearch',
             location: null,
             foodType: null,
+            result: null
         };
 
         this.handleLocationChoice = this.handleLocationChoice.bind(this);
@@ -32,7 +35,6 @@ class SearchApp extends React.Component {
     }
 
     handleFoodSearch() {
-        console.log(this.state.location, this.state.foodType)
         this.setState({page: 'foodResult'});
     }
 
@@ -42,23 +44,49 @@ class SearchApp extends React.Component {
 
     render() {
         if (this.state.page === 'locationSearch') {
-            return <LocationSearchBar
-                        handleLocationChoice={this.handleLocationChoice}
-                        handleLocationSearch={this.handleLocationSearch}
-                    />;
+            return (
+                <div>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/vote'}>Go Vote</Link>
+                    <div>
+                        <h1> Where are you? </h1>
+                        <LocationSearchBar
+                            cityPlaceholder="Choose a city..."
+                            handleLocationChoice={this.handleLocationChoice}
+                        />
+                        <button onClick={() => {this.handleLocationSearch()}}> Find Food Near Me </button>
+                    </div>
+                </div>
+            );
         }
         if (this.state.page === 'foodSearch') {
-            return <FoodSearchBar
-                        handleFoodChoice={this.handleFoodChoice}
-                        handleFoodSearch={this.handleFoodSearch}
-                        navigateToLocationSearch={this.navigateToLocationSearch}
-                    />;
+            return (
+                <div>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/vote'}>Go Vote</Link>
+                    <div>
+                        <h1> What are you craving? </h1>
+                        <FoodSearchBar
+                            foodPlaceholder="I'm craving..."
+                            handleFoodChoice={this.handleFoodChoice}
+                        />
+                        <button onClick={() => {this.handleFoodSearch()}}> Curate The Best </button>
+                    </div>
+                    <button onClick={() => {this.navigateToLocationSearch()}}> Back </button>
+                </div>
+            );
         }
         if (this.state.page === 'foodResult') {
-          return (
-            <div>
-             <FoodResult/>
-            </div>
+            return (
+                <div>
+                    <img src='./logo.jpg'/>
+                    <Link to={'/vote'}>Go Vote</Link>
+                    <FoodResult
+                                location={this.state.location}
+                                foodType={this.state.foodType}
+                                result={results[this.state.foodType.label]}
+                    />
+                </div>
             );
         }
     }

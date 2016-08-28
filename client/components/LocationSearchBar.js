@@ -13,20 +13,16 @@ class LocationSearchBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1> Where are you? </h1>
-                <Select
-                    placeholder="Choose a city..."
-                    clearable={false}
-                    value={this.state.cityChoice}
-                    options={this.state.cities}
-                    onChange={(choice) => {
-                        this.setState({cityChoice: choice});
-                        this.props.handleLocationChoice(choice)
-                    }}
-                />
-                <button onClick={() => {this.props.handleLocationSearch()}}> Find Food Near Me </button>
-            </div>
+            <Select
+                placeholder={this.props.cityPlaceholder}
+                clearable={false}
+                value={this.state.cityChoice}
+                options={this.state.cities}
+                onChange={(choice) => {
+                    this.setState({cityChoice: choice});
+                    this.props.handleLocationChoice(choice);
+                }}
+            />
         );
     }
 }
