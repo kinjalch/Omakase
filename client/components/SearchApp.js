@@ -100,6 +100,7 @@ class SearchApp extends React.Component {
                                 foodType={this.state.foodType}
                                 result={results[this.state.foodType.label]}
                     />
+                    <button onClick={() => {this.navigateToLocationSearch()}}> Search for more! </button>
                 </div>
             );
         }
