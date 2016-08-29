@@ -1,38 +1,14 @@
 var db = require('../database/db.js')
 var _ = require('underscore')
 
-var userModel = module.exports;
 
-console.log('we are in User Model')
+var userModel = module.exports
 
-// two below for FB token
-userModel.findUserById = function(FB_id) {
-	console.log('we are in userModel inside findUserById')
-	return db('Users').where({
-		FB_id: FB_id
-	}).limit(1)
-	.then(function(rows) {
-		return rows[0]
-	})
-}
-
-
-// userModel.createUser = function(attr) {
-// 	console.log('we are in userModel inside createUser: ')
-// 	return new Promise(function(resolve,reject) {
-// 		return db('Users').insert(attr)
-// 		.then(function(result) {
-// 			console.log('result inside createUser is', result)
-// 			attr.id = result[0]
-// 			return resolve(attr)
-// 		})
-// 	})
-// }
-
-userModel.createUser = function(attr) {
-	console.log('inside user.model.js createUser ', attr)
-	return new Promise(function(resolve, reject) {
-		return db.insert({FB_id: attr.id}).into('Users')
+userModel.addUser = function(attr) {
+	console.log('attr inside addUser in model is ', attr)
+	console.log('we are in userModel inside createUser: ')
+	return new Promise(function(resolve,reject) {
+		return db('Users').insert(attr)
 		.then(function(result) {
 			console.log('result inside createUser is', result)
 			attr.id = result[0]
@@ -40,6 +16,19 @@ userModel.createUser = function(attr) {
 		})
 	})
 }
+
+userModel.findUserById = function(params) {
+	console.log('we are in userModel inside findUserById')
+	console.log("params in findUserById", params)
+	return db('Users').where({
+		FB_id: params.FB_id
+	}).limit(1)
+	.then(function(rows) {
+		return rows[0]
+	})
+}
+
+
 
 
 
