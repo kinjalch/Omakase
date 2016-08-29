@@ -18,8 +18,8 @@ knex.ensureSchema = function() {
 		knex.schema.hasTable('Users').then(function(exists) {
 			if (!exists) {
   			 knex.schema.createTable('Users', function(table) {
-  				table.integer('id').primary();
-  				table.string('user');
+  				table.increments('id').primary();
+          table.string('FB_id', 50); //for FB auth token
   			}).then(function(table) {
   				console.log('UsersTable has been created', table)
   			})
@@ -28,7 +28,7 @@ knex.ensureSchema = function() {
   	knex.schema.hasTable('Resturants').then(function(exists) {
 			if (!exists) {
   			 knex.schema.createTable('Resturants', function(table) {
-  				table.integer('id').primary();
+  				table.increments('id').primary();
   				table.string('resturant_name');
   				table.string('address');
   				table.integer('zipcode');
@@ -41,7 +41,7 @@ knex.ensureSchema = function() {
   	knex.schema.hasTable('Locations').then(function(exists) {
 			if (!exists) {
   			 knex.schema.createTable('Locations', function(table) {
-  				table.integer('id').primary();
+  				table.increments('id').primary();
   				table.string('location_name');
   			}).then(function(table) {
   				console.log('LocationsTable has been created', table)
@@ -51,7 +51,7 @@ knex.ensureSchema = function() {
   	knex.schema.hasTable('Dishes').then(function(exists) {
 			if (!exists) {
   			 knex.schema.createTable('Dishes', function(table) {
-  				table.integer('id').primary();
+  				table.increments('id').primary();
   				table.string('dish_name');
   				table.integer('voteCount');
   				table.integer('resturant_id').references('id').inTable('Resturants');
@@ -64,9 +64,9 @@ knex.ensureSchema = function() {
   	knex.schema.hasTable('UsersDishes').then(function(exists) {
 			if (!exists) {
   			 knex.schema.createTable('UsersDishes', function(table) {
-  				table.integer('id').primary();
+  				table.increments('id').primary();
   				table.integer('dish_id').references('id').inTable('Dishes');
-  				table.integer('user_id').references('id').inTable('Users');
+          table.string('fb_id_Users').references('id').inTable('Users'); //fb token link
   			}).then(function(table) {
   				console.log('UsersTable has been created', table)
   			})
@@ -81,16 +81,16 @@ knex.ensureSchema = function() {
 knex.deleteEverything = function () {
  return knex('Users').truncate()
     .then(function () {
-      return knex('Resturants').truncate();
+      return knex('UsersDishes').truncate();
     })
      .then(function () {
-      return knex('Locations').truncate();
-    })
-      .then(function () {
       return knex('Dishes').truncate();
     })
       .then(function () {
-      return knex('UsersDishes').truncate();
+      return knex('Resturants').truncate();
+    })
+      .then(function () {
+      return knex('Locations').truncate();
     }).then(function() {
       console.log("everything wiped")
  }
