@@ -9,8 +9,8 @@ class VoteApp extends React.Component {
             page: 'voteSurvey',
             foodType: null,
             location: null,
-            restaurant: null,
-            hasLocationChoice: false
+            hasLocationChoice: false,
+            restaurant: null
         };
 
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
@@ -20,16 +20,16 @@ class VoteApp extends React.Component {
     }
 
     handleFoodChoice(choice) {
-        console.log(choice);
+        this.setState({foodType: choice});
     }
 
     handleLocationChoice(choice) {
-        console.log(choice);
+        this.setState({location: choice});
         this.setState({hasLocationChoice: true});
     }
 
     handleRestaurantChoice(choice) {
-        console.log(choice);
+        this.setState({restaurant: choice});
     }
 
     handleVote() {
@@ -57,7 +57,7 @@ class VoteApp extends React.Component {
                 <div>
                     <img src='./logo.jpg'/>
                     <Link to={'/'}>Search for Food</Link>
-                    <h1> You voted! </h1>
+                    <h1> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
                 </div>
             );
         }
