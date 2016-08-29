@@ -16,6 +16,7 @@ class FoodSearchBar extends React.Component {
             <Select
                 placeholder={this.props.foodPlaceholder}
                 clearable={false}
+                backspaceRemoves={false}
                 value={this.state.foodChoice}
                 options={this.state.foodTypes}
                 onChange={(choice) => {

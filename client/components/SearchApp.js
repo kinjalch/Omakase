@@ -24,21 +24,33 @@ class SearchApp extends React.Component {
 
     handleLocationChoice(choice) {
         this.setState({location: choice});
+        this.setState({locationError: false});
     }
 
     handleLocationSearch() {
-        this.setState({page: 'foodSearch'});
+        if (this.state.location) {
+            this.setState({page: 'foodSearch'});
+        } else {
+            this.setState({locationError: true});
+        }
     }
 
     handleFoodChoice(choice) {
         this.setState({foodType: choice});
+        this.setState({foodError: false});
     }
 
     handleFoodSearch() {
-        this.setState({page: 'foodResult'});
+        if (this.state.foodType) {
+            this.setState({page: 'foodResult'});
+        } else {
+            this.setState({foodError: true});
+        }
     }
 
     navigateToLocationSearch() {
+        this.setState({location: null});
+        this.setState({foodType: null});
         this.setState({page: 'locationSearch'});
     }
 
@@ -50,6 +62,7 @@ class SearchApp extends React.Component {
                     <Link to={'/vote'}>Go Vote</Link>
                     <div>
                         <h1> Where are you? </h1>
+                        {this.state.locationError && <p> Please choose a city! </p>}
                         <LocationSearchBar
                             cityPlaceholder="Choose a city..."
                             handleLocationChoice={this.handleLocationChoice}
@@ -66,6 +79,7 @@ class SearchApp extends React.Component {
                     <Link to={'/vote'}>Go Vote</Link>
                     <div>
                         <h1> What are you craving? </h1>
+                        {this.state.foodError && <p> Please choose a food! </p>}
                         <FoodSearchBar
                             foodPlaceholder="I'm craving..."
                             handleFoodChoice={this.handleFoodChoice}
