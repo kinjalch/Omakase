@@ -6,15 +6,34 @@ exports.dish = {
 }
 
 
-function postDish(req, res) {
-	console.log('inside dish.controller post reqbody: ',req.body);
-	dishModel.postDish(req.body)
-	.then(function(data) {
-		console.log('data inside dish.controller.js');
-		res.status(200).send(data);
-	})
-	.catch(function(error) {
-		console.error('error inside dish.controller.js', error)
-		res.status(404).send(error)
-	})
+
+
+function postDish(req,res) {
+	console.log('we are inside postDish')
+	console.log('req . body inside postdish', req.body)
+	dishModel.findDish(req.body)
+		.then(function(dish) {
+			if (dish) {
+				console.log('Dish already exists')
+				res.end('Dish already exists')
+				dishModel.incrementVoteCount() //may return promise
+				res.end('vote Count increment')
+			}  else {
+				dishModel.createDish(req.body)
+				.then(function(result) {
+					console.log('result inside dishController', result)
+					res.send(result)
+				})
+				.catch(fuction(err) {
+					console.log('error inside createDish', err)
+					res.end('error inside createDish', err)
+				})
+			}
+		})
+		.catch(function(err) {
+			console.error('error inside findDish', err)
+			res.end('error inside findDish', err)
+		})
 }
+
+
