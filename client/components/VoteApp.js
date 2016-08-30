@@ -9,8 +9,8 @@ class VoteApp extends React.Component {
             page: 'voteSurvey',
             foodType: null,
             location: null,
-            restaurant: null,
-            hasLocationChoice: false
+            hasLocationChoice: false,
+            restaurant: null
         };
 
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
@@ -20,20 +20,27 @@ class VoteApp extends React.Component {
     }
 
     handleFoodChoice(choice) {
-        console.log(choice);
+        this.setState({foodType: choice});
+        this.setState({error: false});
     }
 
     handleLocationChoice(choice) {
-        console.log(choice);
+        this.setState({location: choice});
         this.setState({hasLocationChoice: true});
+        this.setState({error: false});
     }
 
     handleRestaurantChoice(choice) {
-        console.log(choice);
+        this.setState({restaurant: choice});
+        this.setState({error: false});
     }
 
     handleVote() {
-        this.setState({page: 'userProfile'});
+        if (this.state.foodType && this.state.location && this.state.restaurant) {
+            this.setState({page: 'userProfile'});
+        } else {
+            this.setState({error: true});
+        }
     }
 
     render() {
@@ -42,6 +49,7 @@ class VoteApp extends React.Component {
                 <div>
                     <img src='./logo.jpg'/>
                     <Link to={'/'}>Search for Food</Link>
+                    {this.state.error && <p> Please complete the voting form! </p>}
                     <VoteSurvey
                         handleFoodChoice={this.handleFoodChoice}
                         handleLocationChoice={this.handleLocationChoice}
@@ -57,7 +65,7 @@ class VoteApp extends React.Component {
                 <div>
                     <img src='./logo.jpg'/>
                     <Link to={'/'}>Search for Food</Link>
-                    <h1> You voted! </h1>
+                    <h1> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
                 </div>
             );
         }

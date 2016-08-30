@@ -17,6 +17,7 @@ class RestaurantSearchBar extends React.Component {
                 disabled={!this.props.hasLocationChoice}
                 placeholder={null}
                 clearable={false}
+                backspaceRemoves={false}
                 value={this.state.restaurantChoice}
                 options={this.state.restaurants}
                 onChange={(choice) => {

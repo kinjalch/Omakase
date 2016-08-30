@@ -16,6 +16,7 @@ class LocationSearchBar extends React.Component {
             <Select
                 placeholder={this.props.cityPlaceholder}
                 clearable={false}
+                backspaceRemoves={false}
                 value={this.state.cityChoice}
                 options={this.state.cities}
                 onChange={(choice) => {
