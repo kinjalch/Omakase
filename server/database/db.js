@@ -35,7 +35,7 @@ knex.ensureSchema = function() {
   				table.integer('zipcode');
   				table.string('imageUrl');
   			}).then(function(table) {
-  				console.log('RestaurantsTable has been created', table)
+  				console.log('Restaurants Table has been created', table)
   			})
   		}
   	}),
