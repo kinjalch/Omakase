@@ -20,6 +20,7 @@ function getDish(req, res) {
 	})
 }
 
+//does not work properly because there are no resturants to get
 function getResturants(req, res) {
 	console.log('inside search.controller GET reqbody: ',req.query);
 	searchModel.getArrayOfResturantNames()
