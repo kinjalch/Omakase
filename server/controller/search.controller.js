@@ -3,7 +3,7 @@ var searchModel = require('../model/search.model.js');
 console.log('we are in searchController')
 exports.search = {
 	getDish: getDish,
-	getResturants: getResturants
+	getRestaurants: getRestaurants
 }
 
 
@@ -21,7 +21,7 @@ function getDish(req, res) {
 }
 
 //does not work properly because there are no resturants to get
-function getResturants(req, res) {
+function getRestaurants(req, res) {
 	console.log('inside search.controller GET reqbody: ',req.query);
 	searchModel.getArrayOfResturantNames()
 	.then(function(data) {
