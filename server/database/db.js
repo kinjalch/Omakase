@@ -26,16 +26,16 @@ knex.ensureSchema = function() {
   			})
   		}
   	}),
-  	knex.schema.hasTable('Resturants').then(function(exists) {
+  	knex.schema.hasTable('Restaurants').then(function(exists) {
 			if (!exists) {
-  			 knex.schema.createTable('Resturants', function(table) {
+  			 knex.schema.createTable('Restaurants', function(table) {
   				table.increments('id').primary();
-  				table.string('resturant_name');
+  				table.string('restaurant_name');
   				table.string('address');
   				table.integer('zipcode');
   				table.string('imageUrl');
   			}).then(function(table) {
-  				console.log('ResturantsTable has been created', table)
+  				console.log('RestaurantsTable has been created', table)
   			})
   		}
   	}),
@@ -55,7 +55,7 @@ knex.ensureSchema = function() {
   				table.increments('id').primary();
   				table.string('dish_name');
   				table.integer('voteCount');
-  				table.integer('resturant_id').unsigned().references('id').inTable('Resturants');
+  				table.integer('restaurant_id').unsigned().references('id').inTable('Restaurants');
   				table.integer('location_id').unsigned().references('id').inTable('Locations');
   			}).then(function(table) {
   				console.log('DishesTable has been created', table)
@@ -88,7 +88,7 @@ knex.deleteEverything = function () {
       return knex('Dishes').truncate();
     })
       .then(function () {
-      return knex('Resturants').truncate();
+      return knex('Restaurants').truncate();
     })
       .then(function () {
       return knex('Locations').truncate();

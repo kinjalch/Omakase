@@ -18,7 +18,7 @@ searchModel.getAllDishNames = function() {
 	})
 }
 
-searchModel.getArrayOfResturantNames = function() {
+searchModel.getArrayOfRestaurantNames = function() {
 	console.log('we are in searchModel getArrayOfResturantNames')
 	return db('Dishes').where({
 		location_name: 'Santa Monica'
