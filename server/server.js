@@ -12,6 +12,7 @@ app.use(cors())
 app.use(bodyParse.json({limit: '50mb'}));
 
 app.use(express.static(__dirname + '/../client/')) 
+// app.use(express.static(__dirname+ '/../bundle.js'))
 
 
 
