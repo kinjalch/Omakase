@@ -1,12 +1,13 @@
 import React from 'react';
+import { Image, Thumbnail, Button } from 'react-bootstrap';
 
 var FoodResult = (props) => (
-    <div id='food-result'>
-        <h1>Best {props.foodType.value.foodName.toLowerCase()} in {props.location.label}:</h1>
-        <img src={props.foodType.value.image}/>
-        <div>{props.result.restaurant}</div>
-        <div>{props.result.address}</div>
-        <div>{props.result.hours}</div>
+    <div className='food-result'>
+        <Thumbnail src={props.foodType.value.image}>
+            <h3>{props.result.restaurant}</h3>
+            <div>{props.result.address}</div>
+            <div>{props.result.hours}</div>
+        </Thumbnail>
     </div>
 );
 

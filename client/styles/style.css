@@ -1,0 +1,105 @@
+body {
+    height: 100vh;
+}
+
+.container-fluid {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    height: 100vh;
+}
+
+.nav-bar {
+    background: white;
+    margin: 0;
+    flex: 1;
+}
+
+.nav-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    margin-left: 10px;
+    margin-top: 10px;
+    background: black;
+    color: white;
+    border: black;
+}
+
+.float-right {
+    float: right;
+    margin-right: 10px;
+}
+
+.main-container {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    flex: 8;
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://hd.unsplash.com/photo-1445364502257-00c4ddb9b18d');
+    position: relative;
+}
+
+.main-content {
+    font-size: 1.5em;
+    width: 60%;
+    margin-top: 100px;
+    text-align: center;
+    position: relative;
+}
+
+.result-content {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.arrow {
+    position: absolute;
+    left: 80px;
+    top: 172px;
+    font-size: 5em;
+    color: white;
+}
+
+.arrow:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.main-content p {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 2em;
+    margin-bottom: 35px;
+}
+
+.error-message {
+    font-size: 1em;
+    color: red;
+}
+
+.main-button {
+    margin-top: 40px;
+    border: black;
+}
+
+.food-result {
+    width: 300px;
+    color: white;
+    font-size: 1em;
+}
+
+.food-image {
+    height: 300px;
+    width: 300px;
+}
