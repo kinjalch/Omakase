@@ -60,31 +60,43 @@ dishModel.incrementVoteCount = function(params) {
 	})
 }
 
-	//insertion function FIX
 dishModel.createDish = function(params) {
 	console.log('we are inside createDish inside dishModel')
 	console.log('params inside createDish inside dishModel', params)
 	return new Promise(function(resolve, reject) {
-		return db('Dishes').insert(params)
+		return db('Dishes').insert(params.Dish)
 		.then(function(result) {
 			console.log('result inside createDish is', result)
-			return resolve(params)
+			return resolve(result)
 		})
 	})
 }
 
-// userModel.addUser = function(attr) {
-// 	console.log('attr inside addUser in model is ', attr)
-// 	console.log('we are in userModel inside createUser: ')
-// 	return new Promise(function(resolve,reject) {
-// 		return db('Users').insert(attr)
-// 		.then(function(result) {
-// 			console.log('result inside createUser is', result)
-// 			attr.id = result[0]
-// 			return resolve(attr)
-// 		})
-// 	})
-// }
+dishModel.createRestaurant = function(params) {
+	console.log('we are inside createRestaurant inside dishModel')
+	console.log('params inside createRestaurant', params)
+	return new Promise(function(resolve, reject) {
+		return db('Restaurants').insert(params.Restaurant)
+		.then(function(result) {
+			console.log('result inside createRestaurant', result)
+			return resolve(result)
+		})
+	})
+}
+
+dishModel.createLocation = function(params) {
+	console.log('we are inside createLocation inside dishModel')
+	console.log('params inside createLocation ', params)
+	return new Promise(function(resolve, reject) {
+		return db('Locations').insert(params.Location)
+		.then(function(result) {
+			console.log('result inside createLocation', result)
+			return resolve(result)
+		})
+	})
+}
+
+
 
 
 

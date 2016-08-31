@@ -16,9 +16,34 @@ function postSimple(req, res) {
 				dishModel.incrementVoteCount(req.body)
 				res.end('inside postDishController dish already exists and we incremented votecount', dish)
 			}  else {
-				//insert createDish function here
 				console.log('inside postDishController dish does not exist')
-				console.log('inside postDishController insert function goes here')
+				dishModel.createDish(req.body)
+					.then(function(resultDish) {
+						console.log('result inside dishController createDish', resultDish)
+						return resultDish
+					})
+					.catch(function(err) {
+						console.error('Error inside createDish', err)
+						res.end('Error inside create Dish', err)
+					})
+				dishModel.createRestaurant(req.body)
+					.then(function(resultRest) {
+						console.log('result inside dishController createRestaurant', resultRest)
+						return resultRest
+					})
+					.catch(function(err) {
+						console.log('Error inside createRestaurant', err)
+						res.end('Error inside createRestaurant', err)
+					})
+				dishModel.createLocation(req.body)
+					.then(function(resultLocation) {
+						console.log('result inside dishController createLocation', resultLocation)
+						res.send(resultLocation)
+					})
+					.catch(function(err) {
+						console.log('Error inside createLocation', err)
+						res.send('Error inside createLocation', err)
+					})
 			}
 		})
 		.catch(function(err) {
