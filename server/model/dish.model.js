@@ -95,8 +95,3 @@ dishModel.createLocation = function(params) {
 		})
 	})
 }
-
-
-
-
-
