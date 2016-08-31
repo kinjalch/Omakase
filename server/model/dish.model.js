@@ -4,7 +4,7 @@ var _ = require('underscore')
 var dishModel = module.exports;
 
 //This will check if a dish exists
-dishModel.findSimple = function(params) {
+dishModel.findDish = function(params) {
 	return db('Dishes')
 		.innerJoin('Locations', 'Locations.id','Dishes.location_id')
 		.innerJoin('Restaurants','Restaurants.id', 'Dishes.restaurant_id')
@@ -18,8 +18,6 @@ dishModel.findSimple = function(params) {
 		return rows[0]
 	})
 }
-
-
 
 dishModel.incrementVoteCount = function(params) {
 	console.log('we are inside incrementVoteCount')
@@ -63,44 +61,4 @@ dishModel.addDishEntry = function(params) {
 			})
 		})
 }
-
-// dishModel.createDish = function(params,restId) {
-// 	console.log('we are inside createDish inside dishModel')
-// 	console.log('params inside createDish inside dishModel', params)
-// 	return new Promise(function(resolve, reject) {
-// 		return db('Dishes').insert(params.Dish)
-// 		.then(function(result) {
-// 			console.log('result inside createDish inside dishModel', result)
-// 			return resolve(result)
-// 		})
-// 	})
-// }
-
-// dishModel.createRestaurant = function(params) {
-// 	console.log('we are inside createRestaurant inside dishModel')
-// 	console.log('params inside createRestaurant', params)
-// 	return new Promise(function(resolve, reject) {
-// 		return db('Restaurants').insert(params.Restaurant)
-// 		.then(function(result) {
-// 			console.log('result inside createRestaurant inside dishModel', result)
-// 			params.rest_id = result[0]
-// 			return resolve(params)
-// 		})
-// 	})
-// }
-
-// dishModel.createLocation = function(params) {
-// 	console.log('we are inside createLocation inside dishModel')
-// 	console.log('params inside createLocation ', params)
-// 	return new Promise(function(resolve, reject) {
-// 		return db('Locations').insert(params.Location)
-// 		.then(function(result) {
-// 			console.log('result inside createLocation inside dishModel', result)
-// 			return resolve(result)
-// 		})
-// 	})
-// }
-
-
-
 
