@@ -64,5 +64,18 @@ dishModel.createDish = function(params) {
 	})
 }
 
+userModel.addUser = function(attr) {
+	console.log('attr inside addUser in model is ', attr)
+	console.log('we are in userModel inside createUser: ')
+	return new Promise(function(resolve,reject) {
+		return db('Users').insert(attr)
+		.then(function(result) {
+			console.log('result inside createUser is', result)
+			attr.id = result[0]
+			return resolve(attr)
+		})
+	})
+}
+
 
 
