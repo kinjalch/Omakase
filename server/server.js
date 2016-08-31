@@ -32,6 +32,6 @@ app.use('/api/dish', dishRouter)
 app.set('port', process.env.PORT || 3000);
 
 app.listen(app.get('port'), function() {
-  db.ensureSchema()
+  // db.ensureSchema()
   console.log('we are now listening on ', app.get('port'))
 })
