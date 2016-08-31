@@ -3,27 +3,6 @@ var _ = require('underscore')
 
 var dishModel = module.exports;
 
-// dishModel.findDish = function(params) {
-// 	console.log('we are in dishModel inside findDish')
-// 	console.log('+++****+++params inside dishModel inside findDish: ', params)
-// 	return db('Dishes')
-// 	.select(['restaurant_name','address','imageUrl','location_name'])
-// 	.innerJoin('Locations','Restaurants')
-// 	.innerJoin('Locations','Dishes.locations_id','Locations.id')
-// 	// .innerJoin('Restaurants', 'Dishes.restaurant_id', 'Restaurants.id')
-// 	.where({
-// 		"restaurant_name": params.Restaurant.restaurant_name,
-// 		"dish_name":params.Dish.dish_name,
-// 		"location_name":params.Location.location_name
-// 	})
-// 	.orderBy('voteCount', 'desc')
-// 	.limit(1)
-// 	.then(function(rows) {
-// 		console.log('we are in findDish inside dishModel and rows are : ',rows)
-// 		return rows[0];
-// 	});
-// }
-
 //This will check if a dish exists
 dishModel.findSimple = function(params) {
 	return db('Dishes')
@@ -79,7 +58,7 @@ dishModel.addDishEntry = function(params) {
 				console.log('params in third promise', params)
 				return db('Dishes').insert(params.Dish)
 				.then(function(result) {
-					return resolve(result)
+					return resolve(params)
 				}) 
 			})
 		})

@@ -6,56 +6,6 @@ exports.dish = {
 
 
 
-//POST DISH IS NOW FIND SIMPLE
-// function postSimple(req, res) {
-// 	var restaurantIdArrayValue = [];
-// 	console.log('we are inside postSimple')
-// 	console.log('req . body inside postSimple', req.body)
-// 		dishModel.findSimple(req.body)
-// 		.then(function(dish) {
-// 			if (dish) {
-// 				console.log('inside postDishController inside postSimple dish already exists',dish)
-// 				dishModel.incrementVoteCount(req.body)
-// 				res.end('inside postDishController dish already exists and we incremented votecount', dish)
-// 			}  else {
-// 				console.log('inside postDishController dish does not exist')
-// 				dishModel.createRestaurant(req.body)
-// 					.then(function(resultRest) {
-// 						console.log('resultRest inside dishController createRestaurant resultRest is: ', resultRest)
-// 						return resultRest
-// 					})
-// 					.catch(function(err) {
-// 						console.log('Error inside createRestaurant', err)
-// 						res.end('Error inside createRestaurant', err)
-// 					})
-// 				dishModel.createLocation(req.body)
-// 					.then(function(resultLocation) {
-// 						console.log('result inside dishController createLocation', resultLocation)
-// 						return resultLocation
-// 					})
-// 					.catch(function(err) {
-// 						console.log('Error inside createLocation', err)
-// 						res.end('Error inside createLocation', err)
-// 					})
-// 					console.log('inside controller dishModel.restId is',dishModel.restId)
-// 					dishModel.createDish(req.body, dishModel.restId)
-// 					.then(function(resultDish) {
-// 						console.log('result inside dishController createDish', resultDish)
-// 						res.send(resultDish)
-// 					})
-// 					.catch(function(err) {
-// 						console.error('Error inside createDish', err)
-// 						res.end('Error inside create Dish', err)
-// 					})
-// 				}
-// 		})
-// 		.catch(function(err) {
-// 			console.log('inside postDishController error in findSimple', err)
-// 			res.end('inside postDishController error in findSimple', err)
-// 		})
-// }
-
-//try this with double promises
 function postSimple(req, res) {
 	var restaurantIdArrayValue = [];
 	console.log('we are inside postSimple')
@@ -85,37 +35,5 @@ function postSimple(req, res) {
 		})
 }
 
-
-
-// function postDish(req,res) {
-// 	console.log('we are inside postDish')
-// 	console.log('req . body inside postdish', req.body)
-// 	dishModel.findDish(req.body)
-// 		.then(function(dish) {
-// 			if (dish) {
-// 				console.log('Dish already exists')
-// 				res.end('Dish already exists') //return dish and increment votecount
-// 				dishModel.incrementVoteCount() 
-// 				.then(function(result) {
-// 					console.log('inside postDish the result of incremenation is', result)
-// 					res.send(result)
-// 				})
-// 			}  else {
-// 				dishModel.createDish(req.body)
-// 				.then(function(result) {
-// 					console.log('result inside dishController', result)
-// 					res.send(result)
-// 				})
-// 				.catch(function(err) {
-// 					console.log('error inside createDish', err)
-// 					res.end('error inside creatDish',err)
-// 				})
-// 			}
-// 		})
-// 		.catch(function(err) {
-// 			console.error('error inside findDish inside dish.controller', err)
-// 			res.end('error inside findDish inside dish.controller',err)
-// 		})
-// }
 
 
