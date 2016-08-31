@@ -34,6 +34,9 @@ body {
 
 .float-right {
     float: right;
+}
+
+.pad-right {
     margin-right: 10px;
 }
 
@@ -70,6 +73,12 @@ body {
     margin-top: 100px;
     position: relative;
     text-align: center;
+}
+
+.about-content {
+    margin-top: 100px;
+    text-align: center;
+    color: white;
 }
 
 .vote-survey p {
