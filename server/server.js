@@ -15,18 +15,6 @@ app.use(express.static(__dirname + '/../client/'))
 // app.use(express.static(__dirname+ '/../bundle.js'))
 
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
-///
-
-  // 404 Error handling
-app.use(function (req, res, next) {
-  let err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
 
 
 
