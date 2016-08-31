@@ -3,6 +3,7 @@ import foodTypes from '../data/dummyFoods';
 import FoodSearchBar from './FoodSearchBar';
 import LocationSearchBar from './LocationSearchBar';
 import RestaurantSearchBar from './RestaurantSearchBar';
+import { Button } from 'react-bootstrap';
 
 class VoteSurvey extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class VoteSurvey extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="vote-survey">
                 <p> I had the best </p>
                 <FoodSearchBar
                     foodPlaceholder={null}
@@ -30,7 +31,7 @@ class VoteSurvey extends React.Component {
                     hasLocationChoice={this.props.hasLocationChoice}
                     handleRestaurantChoice={this.props.handleRestaurantChoice}
                 />
-                <button onClick={() => {this.props.handleVote()}}> Vote! </button>
+                <Button bsSize="large" className="main-button" onClick={() => {this.props.handleVote()}}> Vote! </Button>
             </div>
         );
     }

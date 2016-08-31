@@ -63,6 +63,19 @@ body {
     justify-content: center;
 }
 
+.vote-survey-content {
+    font-size: 2em;
+    color: white;
+    width: 40%;
+    margin-top: 100px;
+    position: relative;
+    text-align: center;
+}
+
+.vote-survey p {
+    margin-top: 5px;
+}
+
 .arrow {
     position: absolute;
     left: 80px;

@@ -6,7 +6,7 @@ var NavBar = (props) => (
         <Nav bsStyle="pills" className="button-bar">
             <a href="#/signup"><Button bsStyle="default" className="nav-button"> Sign Up </Button></a>
             <a href="#/login"><Button bsStyle="default" className="nav-button"> Login </Button></a>
-            <a href="#/vote"><Button bsStyle="default" className="nav-button float-right"> {props.navMessage} </Button></a>
+            <a href={props.navLink}><Button bsStyle="default" className="nav-button float-right"> {props.navMessage} </Button></a>
         </Nav>
         <div className="nav-logo">
             <a href="#"><img src='./logo_medium.jpg'/></a>

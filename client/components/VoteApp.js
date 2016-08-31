@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import NavBar from './NavBar';
 import VoteSurvey from './VoteSurvey';
 
 class VoteApp extends React.Component {
@@ -7,6 +8,8 @@ class VoteApp extends React.Component {
         super(props);
         this.state = {
             page: 'voteSurvey',
+            navLink: '#/',
+            navMessage: 'Search for Food',
             foodType: null,
             location: null,
             hasLocationChoice: false,
@@ -46,17 +49,20 @@ class VoteApp extends React.Component {
     render() {
         if (this.state.page === 'voteSurvey') {
             return (
-                <div>
-                    <img src='./logo.jpg'/>
-                    <Link to={'/'}>Search for Food</Link>
-                    {this.state.error && <p> Please complete the voting form! </p>}
-                    <VoteSurvey
-                        handleFoodChoice={this.handleFoodChoice}
-                        handleLocationChoice={this.handleLocationChoice}
-                        hasLocationChoice={this.state.hasLocationChoice}
-                        handleRestaurantChoice={this.handleRestaurantChoice}
-                        handleVote={this.handleVote}
-                    />
+                <div className="container-fluid">
+                    <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
+                    <div className="main-container">
+                        <div className="vote-survey-content">
+                            {this.state.error && <p className="error-message"> Please complete the voting form! </p>}
+                            <VoteSurvey
+                                handleFoodChoice={this.handleFoodChoice}
+                                handleLocationChoice={this.handleLocationChoice}
+                                hasLocationChoice={this.state.hasLocationChoice}
+                                handleRestaurantChoice={this.handleRestaurantChoice}
+                                handleVote={this.handleVote}
+                            />
+                        </div>
+                    </div>
                 </div>
             );
         }
