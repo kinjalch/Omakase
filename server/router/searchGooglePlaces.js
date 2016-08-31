@@ -2,8 +2,8 @@ var auth = require('.Auth');
 var request = require("request");
 import SearchApp from '...../client/components/SearchApp'
 
-var dish = ;
-var location = ;
+var dish = "";
+var location = "";
 var fullSearchTerm = dish + " in " + location;
 
 var options = { method: 'GET',
@@ -24,4 +24,4 @@ request(options, function (error, response, body) {
 
 });
 
-export 
+export searchGooglePlaces;
