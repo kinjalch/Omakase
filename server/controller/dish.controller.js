@@ -13,8 +13,10 @@ function postSimple(req, res) {
 		.then(function(dish) {
 			if (dish) {
 				console.log('inside postDishController inside postSimple dish already exists',dish)
-				res.end('inside postDishController dish already exists', dish)
+				dishModel.incrementVoteCount(req.body)
+				res.end('inside postDishController dish already exists and we incremented votecount', dish)
 			}  else {
+				//insert createDish function here
 				console.log('inside postDishController dish does not exist')
 				console.log('inside postDishController insert function goes here')
 			}
