@@ -12,7 +12,8 @@ var options = { method: 'GET',
    { query: fullSearchTerm,
      key: 'AIzaSyBKzBInzbbwqbFWDpH5aqy8I73k3j4XiRM\t  ',
      type: 'restaurant',
-     opennow: 'true' },
+     opennow: 'true',
+     fields: 'results (formatted_address, name, opening_hours/open_now, photos)'   },
   headers: 
    { 'postman-token': '21482a77-ec74-c13a-99c5-06dcad37ba43',
      'cache-control': 'no-cache' },
@@ -20,8 +21,10 @@ var options = { method: 'GET',
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
+  return response;
   console.log(body);
 
 });
 
 export searchGooglePlaces;
+

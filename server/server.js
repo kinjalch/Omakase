@@ -14,17 +14,19 @@ app.use(bodyParse.json({limit: '50mb'}));
 app.use(express.static(__dirname + '/../client/')) 
 // app.use(express.static(__dirname+ '/../bundle.js'))
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
+// app.get('/', function (req, res) {
+//   res.sendFile(__dirname + '/index.html');
+// });
 ///
 
   // 404 Error handling
-app.use(function (req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+
+// app.use(function (req, res, next) {
+//   let err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
+>>>>>>> upstream/dev
 
 app.use('/api/user', userRouter)
 app.use('/api/search', searchRouter)
@@ -32,6 +34,6 @@ app.use('/api/dish', dishRouter)
 app.set('port', process.env.PORT || 3000);
 
 app.listen(app.get('port'), function() {
-  db.ensureSchema()
+  // db.ensureSchema()
   console.log('we are now listening on ', app.get('port'))
 })
