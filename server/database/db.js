@@ -55,8 +55,10 @@ knex.ensureSchema = function() {
   				table.increments('id').primary();
   				table.string('dish_name');
   				table.integer('voteCount');
-  				table.integer('restaurant_id').unsigned().references('id').inTable('Restaurants');
-  				table.integer('location_id').unsigned().references('id').inTable('Locations');
+          table.integer('restaurant_id').unsigned();
+          table.integer('location_id').unsigned();
+          table.foreign('restaurant_id').references('Restaurants.id');
+          table.foreign('location_id').references('Locations.id');
   			}).then(function(table) {
   				console.log('DishesTable has been created', table)
   			})
