@@ -5,7 +5,7 @@ import LocationSearchBar from './LocationSearchBar';
 import FoodSearchBar from './FoodSearchBar';
 import FoodResult from './FoodResult';
 import results from '../data/dummyResults';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 
 class SearchApp extends React.Component {
     constructor(props) {
@@ -78,9 +78,10 @@ class SearchApp extends React.Component {
         }
         if (this.state.page === 'foodSearch') {
             return (
-                <div className="container-fluid">
+                <div className="container-fluid food-search">
                     <NavBar navMessage={this.state.navMessage}/>
                     <div className="main-container">
+                        <a className="arrow" onClick={() => {this.navigateToLocationSearch()}}><Glyphicon glyph="chevron-left"/></a>
                         <div className="main-content">
                             <p> What are you craving? </p>
                             {this.state.foodError && <div className="error-message"> Please choose a food! </div>}
