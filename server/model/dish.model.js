@@ -43,11 +43,20 @@ dishModel.findSimple = function(params) {
 
 
 
-//this works
-dishModel.incrementVoteCount = function() {
-	return db('Dishes').increment('voteCount', 1)
+dishModel.incrementVoteCount = function(params) {
+	console.log('we are inside incrementVoteCount')
+	return db('Dishes')
+	.innerJoin('Locations', 'Locations.id','Dishes.location_id')
+	.innerJoin('Restaurants','Restaurants.id', 'Dishes.restaurant_id')
+	.where({
+		"Restaurants.restaurant_name": params.Restaurant.restaurant_name,
+		"Dishes.dish_name":params.Dish.dish_name,
+		"Locations.location_name":params.Location.location_name
+	})
+	.increment('voteCount', 1)
+	.select('voteCount')
 	.then(function(rows) {
-		return rows;
+		return rows[0]
 	})
 }
 
@@ -64,18 +73,18 @@ dishModel.createDish = function(params) {
 	})
 }
 
-userModel.addUser = function(attr) {
-	console.log('attr inside addUser in model is ', attr)
-	console.log('we are in userModel inside createUser: ')
-	return new Promise(function(resolve,reject) {
-		return db('Users').insert(attr)
-		.then(function(result) {
-			console.log('result inside createUser is', result)
-			attr.id = result[0]
-			return resolve(attr)
-		})
-	})
-}
+// userModel.addUser = function(attr) {
+// 	console.log('attr inside addUser in model is ', attr)
+// 	console.log('we are in userModel inside createUser: ')
+// 	return new Promise(function(resolve,reject) {
+// 		return db('Users').insert(attr)
+// 		.then(function(result) {
+// 			console.log('result inside createUser is', result)
+// 			attr.id = result[0]
+// 			return resolve(attr)
+// 		})
+// 	})
+// }
 
 
 
