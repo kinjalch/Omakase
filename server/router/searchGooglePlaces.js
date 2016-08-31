@@ -26,5 +26,5 @@ request(options, function (error, response, body) {
 
 });
 
-export searchGooglePlaces;
+module.exports = searchGooglePlaces;
 
