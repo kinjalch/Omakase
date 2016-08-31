@@ -34,6 +34,9 @@ body {
 
 .float-right {
     float: right;
+}
+
+.pad-right {
     margin-right: 10px;
 }
 
@@ -61,6 +64,26 @@ body {
     margin-top: 30px;
     display: flex;
     justify-content: center;
+}
+
+.vote-survey-content {
+    font-size: 1.5em;
+    color: white;
+    width: 40%;
+    margin-top: 100px;
+    position: relative;
+    text-align: center;
+}
+
+.about-content {
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+}
+
+.vote-survey p {
+    font-size: 1.5em;
+    margin-top: 5px;
 }
 
 .arrow {
@@ -93,13 +116,21 @@ body {
     border: black;
 }
 
+.main-button:hover {
+    background: black;
+    color: white;
+}
+
 .food-result {
     width: 300px;
-    color: white;
     font-size: 1em;
 }
 
 .food-image {
     height: 300px;
     width: 300px;
+}
+
+.vote-confirm {
+    color: white;
 }

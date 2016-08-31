@@ -12,6 +12,7 @@ class SearchApp extends React.Component {
         super(props);
         this.state = {
             page: 'locationSearch',
+            navLink: '#/vote',
             navMessage: 'Go Vote!',
             location: null,
             foodType: null,
@@ -67,7 +68,7 @@ class SearchApp extends React.Component {
         if (this.state.page === 'locationSearch') {
             return (
                 <div className="container-fluid">
-                    <NavBar navMessage={this.state.navMessage}/>
+                    <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
                         <div className="main-content">
                             <p> Where are you? </p>
@@ -85,7 +86,7 @@ class SearchApp extends React.Component {
         if (this.state.page === 'foodSearch') {
             return (
                 <div className="container-fluid food-search">
-                    <NavBar navMessage={this.state.navMessage}/>
+                    <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
                         <a className="arrow" onClick={() => {this.navigateToLocationSearch()}}><Glyphicon glyph="chevron-left"/></a>
                         <div className="main-content">
@@ -104,7 +105,7 @@ class SearchApp extends React.Component {
         if (this.state.page === 'foodResult') {
             return (
                 <div className="container-fluid food-search">
-                    <NavBar navMessage={this.state.navMessage}/>
+                    <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
                         <a className="arrow" onClick={() => {this.navigateToFoodSearch()}}><Glyphicon glyph="chevron-left"/></a>
                         <div className="main-content result-content">
