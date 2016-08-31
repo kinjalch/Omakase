@@ -12,13 +12,8 @@ app.use(cors())
 app.use(bodyParse.json({limit: '50mb'}));
 
 app.use(express.static(__dirname + '/../client/')) 
+// app.use(express.static(__dirname+ '/../bundle.js'))
 
-
-=======
-var dishRouter = require('./router/dishRouter.js');
-
-
-app.use(express.static(__dirname + '/../client/')) 
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -31,6 +26,8 @@ app.use(function (req, res, next) {
   err.status = 404;
   next(err);
 });
+
+
 
 
 app.use('/api/user', userRouter)
