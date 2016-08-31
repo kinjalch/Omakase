@@ -14,9 +14,9 @@ app.use(bodyParse.json({limit: '50mb'}));
 app.use(express.static(__dirname + '/../client/')) 
 // app.use(express.static(__dirname+ '/../bundle.js'))
 
-// app.get('/', function (req, res) {
-//   res.sendFile(__dirname + '/index.html');
-// });
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 ///
 
   // 404 Error handling
@@ -26,7 +26,7 @@ app.use(express.static(__dirname + '/../client/'))
 //   err.status = 404;
 //   next(err);
 // });
->>>>>>> upstream/dev
+
 
 app.use('/api/user', userRouter)
 app.use('/api/search', searchRouter)
