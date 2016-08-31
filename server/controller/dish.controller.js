@@ -1,19 +1,19 @@
 var dishModel = require('../model/dish.model.js');
 console.log('we are in dishController')
 exports.dish = {
-	postDish: postSimple
+	postDish: postDish
 }
 
 
 
-function postSimple(req, res) {
+function postDish(req, res) {
 	var restaurantIdArrayValue = [];
-	console.log('we are inside postSimple')
-	console.log('req . body inside postSimple', req.body)
-		dishModel.findSimple(req.body)
+	console.log('we are inside postDish')
+	console.log('req . body inside postDish', req.body)
+		dishModel.findDish(req.body)
 		.then(function(dish) {
 			if (dish) {
-				console.log('inside postDishController inside postSimple dish already exists',dish)
+				console.log('inside postDishController inside postDish dish already exists',dish)
 				dishModel.incrementVoteCount(req.body)
 				res.end('inside postDishController dish already exists and we incremented votecount', dish)
 			}  else {
@@ -30,8 +30,8 @@ function postSimple(req, res) {
 			}
 		})
 		.catch(function(err) {
-			console.log('inside postDishController error in findSimple', err)
-			res.end('inside postDishController error in findSimple', err)
+			console.log('inside postDishController error in findDish', err)
+			res.end('inside postDishController error in findDish', err)
 		})
 }
 
