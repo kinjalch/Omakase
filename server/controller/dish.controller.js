@@ -7,7 +7,6 @@ exports.dish = {
 
 
 function postDish(req, res) {
-	var restaurantIdArrayValue = [];
 	console.log('we are inside postDish')
 	console.log('req . body inside postDish', req.body)
 		dishModel.findDish(req.body)

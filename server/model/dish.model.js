@@ -3,7 +3,6 @@ var _ = require('underscore')
 
 var dishModel = module.exports;
 
-//This will check if a dish exists
 dishModel.findDish = function(params) {
 	return db('Dishes')
 		.innerJoin('Locations', 'Locations.id','Dishes.location_id')
@@ -35,7 +34,6 @@ dishModel.incrementVoteCount = function(params) {
 		return rows[0]
 	})
 }
-
 
 dishModel.addDishEntry = function(params) {
 		return new Promise(function(resolve,reject) {
