@@ -23,6 +23,7 @@ class SearchApp extends React.Component {
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
         this.handleFoodSearch = this.handleFoodSearch.bind(this);
         this.navigateToLocationSearch = this.navigateToLocationSearch.bind(this);
+        this.navigateToFoodSearch = this.navigateToFoodSearch.bind(this);
     }
 
     handleLocationChoice(choice) {
@@ -55,6 +56,11 @@ class SearchApp extends React.Component {
         this.setState({location: null});
         this.setState({foodType: null});
         this.setState({page: 'locationSearch'});
+    }
+
+    navigateToFoodSearch() {
+        this.setState({foodType: null});
+        this.setState({page: 'foodSearch'});
     }
 
     render() {
@@ -97,15 +103,18 @@ class SearchApp extends React.Component {
         }
         if (this.state.page === 'foodResult') {
             return (
-                <div>
-                    <img src='./logo.jpg'/>
-                    <Link to={'/vote'}>Go Vote</Link>
-                    <FoodResult
+                <div className="container-fluid food-search">
+                    <NavBar navMessage={this.state.navMessage}/>
+                    <div className="main-container">
+                        <a className="arrow" onClick={() => {this.navigateToFoodSearch()}}><Glyphicon glyph="chevron-left"/></a>
+                        <div className="main-content result-content">
+                            <FoodResult
                                 location={this.state.location}
                                 foodType={this.state.foodType}
                                 result={results[this.state.foodType.label]}
-                    />
-                    <button onClick={() => {this.navigateToLocationSearch()}}> Search for more! </button>
+                            />
+                        </div>
+                    </div>
                 </div>
             );
         }

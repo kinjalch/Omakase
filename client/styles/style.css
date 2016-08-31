@@ -57,6 +57,12 @@ body {
     position: relative;
 }
 
+.result-content {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
 .arrow {
     position: absolute;
     left: 80px;
@@ -85,4 +91,15 @@ body {
 .main-button {
     margin-top: 40px;
     border: black;
+}
+
+.food-result {
+    width: 300px;
+    color: white;
+    font-size: 1em;
+}
+
+.food-image {
+    height: 300px;
+    width: 300px;
 }
