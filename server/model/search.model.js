@@ -18,6 +18,25 @@ searchModel.getAllDishNames = function() {
 	})
 }
 
+searchModel.getTopRestaurant = function(params) {
+	return db('Dishes')
+		.innerJoin('Locations', 'Locations.id','Dishes.location_id')
+		.innerJoin('Restaurants','Restaurants.id', 'Dishes.restaurant_id')
+	.where({
+		"Dishes.dish_name":params.dish_name,
+		"Locations.location_name":params.location_name
+	})
+	.select('Restaurants.restaurant_name').orderBy('voteCount', 'desc')
+	.then(function(rows) {
+		console.log('result inside searchModel inside getTopRestaurant', rows)
+		return rows[0]
+	})
+}
+
+
+
+
+
 searchModel.getArrayOfRestaurantNames = function() {
 	console.log('we are in searchModel getArrayOfResturantNames')
 	return db('Dishes').where({

@@ -2,9 +2,24 @@ var searchModel = require('../model/search.model.js');
 
 console.log('we are in searchController')
 exports.search = {
-	getDish: getDish,
-	getRestaurants: getRestaurants
+	getTopRestaurant: getTopRestaurant
 }
+
+
+function getTopRestaurant(req,res) {
+	console.log('we are in searchController inside getTopRestaurant');
+	console.log('we are in searchControll inside getTopRestaurant req.query is', req.query);
+	searchModel.getTopRestaurant(req.query)
+	.then(function(result) {
+		console.log('inside searchcontroller inside getTopRestaurant result is', result)
+		return res.send(result)
+	})
+	.catch(function(err) {
+		console.log('Error in getTopRestaurant', err)
+		res.end('Error in getTopRestaurant', err)
+	})
+}
+
 
 
 function getDish(req, res) {
@@ -20,7 +35,6 @@ function getDish(req, res) {
 	})
 }
 
-//does not work properly because there are no resturants to get
 function getRestaurants(req, res) {
 	console.log('inside search.controller GET reqbody: ',req.query);
 	searchModel.getArrayOfResturantNames()
