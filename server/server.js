@@ -10,6 +10,8 @@ var userRouter = require('./router/userRouter.js');
 var dishRouter = require('./router/dishRouter.js');
 app.use(cors())
 app.use(bodyParse.json({limit: '50mb'}));
+var searchGooglePlaces = require('./router/searchGooglePlaces.js')
+
 
 app.use(express.static(__dirname + '/../client/'))
 // app.use(express.static(__dirname+ '/../bundle.js'))
@@ -18,7 +20,7 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-//app.get('/vote', searchGooglePlaces);
+app.get('/vote', searchGooglePlaces);
 ///
 
   // 404 Error handling
