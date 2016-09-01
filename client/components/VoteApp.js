@@ -56,7 +56,7 @@ class VoteApp extends React.Component {
                 "imageUrl": "www.dishonerestaurant.com"
            }
        }
-       
+
         axios.post('/api/dish/post', data)
         .then(function (response) {
             console.log(response);
