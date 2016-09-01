@@ -8,8 +8,8 @@ exports.search = {
 
 function getTopRestaurant(req,res) {
 	console.log('we are in searchController inside getTopRestaurant');
-	console.log('we are in searchControll inside getTopRestaurant req.query is', req.query);
-	searchModel.getTopRestaurant(req.query)
+	console.log('we are in searchController inside getTopRestaurant req.body is', req.body);
+	searchModel.getTopRestaurant(req.body)
 	.then(function(result) {
 		console.log('inside searchcontroller inside getTopRestaurant result is', result)
 		return res.send(result)
