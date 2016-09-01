@@ -11,12 +11,11 @@ var dishRouter = require('./router/dishRouter.js');
 app.use(cors())
 app.use(bodyParse.json({limit: '50mb'}));
 
-app.use(express.static(__dirname + '/../client/'))
-// app.use(express.static(__dirname+ '/../bundle.js'))
+app.use(express.static(__dirname + '/../client'))
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
+app.get('*', function (request, response){
+  response.sendFile(path.resolve(__dirname, '../client', 'index.html'))
+})
 
 
 ///

@@ -9,7 +9,7 @@ class VoteApp extends React.Component {
         super(props);
         this.state = {
             page: 'voteSurvey',
-            navLink: '#/',
+            navLink: '/',
             navMessage: 'Search for Food',
             foodType: null,
             location: null,
