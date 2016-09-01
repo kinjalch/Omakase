@@ -40,7 +40,6 @@ class VoteApp extends React.Component {
     }
 
     handleVote() {
-        console.log('hey')
         var data = {
             "Dish" : {
                 "dish_name" : this.state.foodType.label,
