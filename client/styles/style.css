@@ -17,11 +17,17 @@ body {
     flex: 1;
 }
 
-.nav-logo {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 20px;
+.button-bar {
+    position: relative;
+    margin-top: 5px;
+}
+
+.logo-center {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
 .nav-button {
@@ -45,7 +51,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: top;
-    flex: 8;
+    flex: 10;
     background-size: cover;
     background-position: center;
     background-image: url('https://hd.unsplash.com/photo-1445364502257-00c4ddb9b18d');
@@ -55,13 +61,13 @@ body {
 .main-content {
     font-size: 1.5em;
     width: 60%;
-    margin-top: 100px;
+    margin-top: 150px;
     text-align: center;
     position: relative;
 }
 
 .result-content {
-    margin-top: 30px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
 }
@@ -70,13 +76,13 @@ body {
     font-size: 1.5em;
     color: white;
     width: 40%;
-    margin-top: 100px;
+    margin-top: 150px;
     position: relative;
     text-align: center;
 }
 
 .about-content {
-    margin-top: 100px;
+    margin-top: 150px;
     text-align: center;
     color: white;
 }
@@ -89,7 +95,7 @@ body {
 .arrow {
     position: absolute;
     left: 80px;
-    top: 172px;
+    top: 220px;
     font-size: 5em;
     color: white;
 }
