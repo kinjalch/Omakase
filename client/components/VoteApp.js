@@ -41,23 +41,23 @@ class VoteApp extends React.Component {
 
     handleVote() {
         console.log('hey')
-        axios.post('/api/dish/post', {
-            data: {
-                "Dish" : {
-                    "dish_name" : this.state.foodType.label,
-                    "voteCount": 1
-                },
-                "Location" : {
-                    "location_name" : this.state.location.label
-                },
-                "Restaurant": {
-                    "restaurant_name": this.state.restaurant.label,
-                    "address" : "11 DishOneRestaurantAddress",
-                    "zipcode" : 90025,
-                    "imageUrl": "www.dishonerestaurant.com"
-               }
+        var data = {
+            "Dish" : {
+                "dish_name" : this.state.foodType.label,
+                "voteCount": 1
+            },
+            "Location" : {
+                "location_name" : this.state.location.label
+            },
+            "Restaurant": {
+                "restaurant_name": this.state.restaurant.label,
+                "address" : "11 DishOneRestaurantAddress",
+                "zipcode" : 90025,
+                "imageUrl": "www.dishonerestaurant.com"
            }
-        })
+       }
+       
+        axios.post('/api/dish/post', data)
         .then(function (response) {
             console.log(response);
         })
