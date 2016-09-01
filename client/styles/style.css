@@ -46,7 +46,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: top;
-    flex: 8;
+    flex: 10;
     background-size: cover;
     background-position: center;
     background-image: url('https://hd.unsplash.com/photo-1445364502257-00c4ddb9b18d');
