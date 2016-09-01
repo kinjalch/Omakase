@@ -6,7 +6,7 @@ class AboutPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            navLink: '#/',
+            navLink: '/',
             navMessage: 'Search for Food'
         };
     }

@@ -9,7 +9,7 @@ class VoteApp extends React.Component {
         super(props);
         this.state = {
             page: 'voteSurvey',
-            navLink: '#/',
+            navLink: '/',
             navMessage: 'Search for Food',
             foodType: null,
             location: null,
@@ -40,33 +40,31 @@ class VoteApp extends React.Component {
     }
 
     handleVote() {
-        console.log('hey')
-        var data = {
-            "Dish" : {
-                "dish_name" : this.state.foodType.label,
-                "voteCount": 1
-            },
-            "Location" : {
-                "location_name" : this.state.location.label
-            },
-            "Restaurant": {
-                "restaurant_name": this.state.restaurant.label,
-                "address" : "11 DishOneRestaurantAddress",
-                "zipcode" : 90025,
-                "imageUrl": "www.dishonerestaurant.com"
-           }
-       }
-
-        axios.post('/api/dish/post', data)
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
         if (this.state.foodType && this.state.location && this.state.restaurant) {
-            this.setState({page: 'userProfile'});
+            var data = {
+                "Dish" : {
+                    "dish_name" : this.state.foodType.label,
+                    "voteCount": 1
+                },
+                "Location" : {
+                    "location_name" : this.state.location.label
+                },
+                "Restaurant": {
+                    "restaurant_name": this.state.restaurant.label,
+                    "address" : "11 DishOneRestaurantAddress",
+                    "zipcode" : 90025,
+                    "imageUrl": "www.dishonerestaurant.com"
+               }
+           }
+
+            axios.post('api/dish/add', data)
+            .then((response) => {
+                this.setState({page: 'userProfile'});
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
         } else {
             this.setState({error: true});
         }
