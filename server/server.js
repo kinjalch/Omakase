@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/vote', searchGooglePlaces);
+//app.get('/vote', searchGooglePlaces);
 ///
 
   // 404 Error handling

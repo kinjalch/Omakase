@@ -49,8 +49,8 @@ class SearchApp extends React.Component {
     handleFoodSearch() {
         axios.get('/api/search/restaurant', {
             params: {
-                dish_name: this.state.foodType,
-                location_name: this.state.location
+                dish_name: this.state.foodType.label,
+                location_name: this.state.location.label
             }
         })
         .then(function (response) {
