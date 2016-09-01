@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import axios from 'axios';
 import NavBar from './NavBar';
 import LocationSearchBar from './LocationSearchBar';
 import FoodSearchBar from './FoodSearchBar';
@@ -46,6 +47,19 @@ class SearchApp extends React.Component {
     }
 
     handleFoodSearch() {
+        axios.get('/api/search/restaurant', {
+            params: {
+                dish_name: this.state.foodType.label,
+                location_name: this.state.location.label
+            }
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
         if (this.state.foodType) {
             this.setState({page: 'foodResult'});
         } else {
