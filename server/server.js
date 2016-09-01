@@ -8,33 +8,21 @@ var db = require('./database/db.js');
 var searchRouter = require('./router/searchRouter.js');
 var userRouter = require('./router/userRouter.js');
 var dishRouter = require('./router/dishRouter.js');
-app.use(cors())
+app.use(cors());
 app.use(bodyParse.json({limit: '50mb'}));
 
-app.use(express.static(__dirname + '/../client'))
+app.use(express.static(__dirname + '/../client'));
 
 app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, '../client', 'index.html'))
-})
+  response.sendFile(path.resolve(__dirname, '../client', 'index.html'));
+});
 
-
-///
-
-  // 404 Error handling
-
-// app.use(function (req, res, next) {
-//   let err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
-
-
-app.use('/api/user', userRouter)
-app.use('/api/search', searchRouter)
-app.use('/api/dish', dishRouter)
+app.use('/api/user', userRouter);
+app.use('/api/search', searchRouter);
+app.use('/api/dish', dishRouter);
 app.set('port', process.env.PORT || 3000);
 
 app.listen(app.get('port'), function() {
-  db.ensureSchema()
-  console.log('we are now listening on ', app.get('port'))
-})
+  db.ensureSchema();
+  console.log('we are now listening on ', app.get('port'));
+});

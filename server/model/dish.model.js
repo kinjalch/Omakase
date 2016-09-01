@@ -19,7 +19,6 @@ dishModel.findDish = function(params) {
 }
 
 dishModel.incrementVoteCount = function(params) {
-	console.log('we are inside incrementVoteCount')
 	return db('Dishes')
 	.innerJoin('Locations', 'Locations.id','Dishes.location_id')
 	.innerJoin('Restaurants','Restaurants.id', 'Dishes.restaurant_id')
@@ -43,7 +42,6 @@ dishModel.addDishEntry = function(params) {
 				return params
 			})
 			.then(function(params) {
-				console.log('params in second promise', params)
 				return db('Locations').insert(params.Location)
 				.then(function(result) {
 					params.Dish.location_id = result[0]
@@ -51,12 +49,10 @@ dishModel.addDishEntry = function(params) {
 				})
 			})
 			.then(function(params) {
-				console.log('params in third promise', params)
 				return db('Dishes').insert(params.Dish)
 				.then(function(result) {
 					return resolve(params)
-				}) 
+				})
 			})
 		})
 }
-

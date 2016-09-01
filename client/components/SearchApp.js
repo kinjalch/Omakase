@@ -47,21 +47,21 @@ class SearchApp extends React.Component {
     }
 
     handleFoodSearch() {
-        axios.get('/api/search/restaurant', {
-            params: {
-                dish_name: this.state.foodType.label,
-                location_name: this.state.location.label
-            }
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
         if (this.state.foodType) {
-            this.setState({page: 'foodResult'});
+            var data = {
+                "dish_name": this.state.foodType.label,
+                "location_name": this.state.location.label
+            }
+
+            axios.post('/api/search/restaurant', data)
+            .then((response) => {
+                this.setState({result: response.data.restaurant_name});
+                this.setState({page: 'foodResult'});
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
         } else {
             this.setState({foodError: true});
         }
@@ -126,7 +126,7 @@ class SearchApp extends React.Component {
                             <FoodResult
                                 location={this.state.location}
                                 foodType={this.state.foodType}
-                                result={results[this.state.foodType.label]}
+                                result={this.state.result}
                             />
                         </div>
                     </div>
