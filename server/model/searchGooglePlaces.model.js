@@ -22,7 +22,7 @@ searchGooglePlaces.getRestaurantList = function(params){
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
-      console.log(body);
+      console.log("Inside of GooglePlacesAPI, this is the body: "body);
       return response;
   });
 }
