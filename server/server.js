@@ -8,6 +8,8 @@ var db = require('./database/db.js');
 var searchRouter = require('./router/searchRouter.js');
 var userRouter = require('./router/userRouter.js');
 var dishRouter = require('./router/dishRouter.js');
+var googleSearchRouter = require('./router/searchGooglePlacesRouter.js');
+
 app.use(cors());
 app.use(bodyParse.json({limit: '50mb'}));
 
@@ -17,6 +19,7 @@ app.get('*', function (request, response){
   response.sendFile(path.resolve('./client', 'index.html'));
 });
 
+app.use('/api/vote', googleSearchRouter);
 app.use('/api/user', userRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/dish', dishRouter);
