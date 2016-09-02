@@ -3,7 +3,7 @@ var request = require("request");
 
 var searchGoogleModel = module.exports;
 
-searchGoogleModel.getRestaurantList = function(params) {
+searchGoogleModel.getRestaurantList = function(params, res) {
     var query = params.restaurant + params.location;
 
     var options = {
@@ -19,10 +19,9 @@ searchGoogleModel.getRestaurantList = function(params) {
 
     request(options, function(error, response, body) {
         if (error) {
-            console.log('Error inside searchController inside request:', error);
+            res.status(500).end(error);
         } else {
-            console.log('Success inside searchController inside request: body is', body);
-            return response;
+            res.status(200).send(body);
         }
     });
 }

@@ -13,7 +13,6 @@ class VoteApp extends React.Component {
             navMessage: 'Search for Food',
             foodType: null,
             location: null,
-            hasLocationChoice: false,
             restaurant: null
         };
 
@@ -31,7 +30,6 @@ class VoteApp extends React.Component {
 
     handleLocationChoice(choice) {
         this.setState({location: choice});
-        this.setState({hasLocationChoice: true});
         this.setState({error: false});
     }
 
@@ -41,7 +39,24 @@ class VoteApp extends React.Component {
     }
 
     handleGoogleSearch() {
-        // axios.get('api/google/Resta')
+        // FIX TO USE RESTAURANT QUERY AND SAVE RESTAURANT TO BE THE FINAL CHOICE
+        if (this.state.location && this.state.restaurant) {
+            var data = {
+                "location": this.state.location.label,
+                "restaurant": this.state.restaurant
+            }
+
+            axios.post('/api/google/RestaurantSearchBar', data)
+            .then((response) => {
+                console.log(response)
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+        } else {
+            this.setState({error: true});
+        }
     }
 
     handleVote() {
@@ -86,8 +101,8 @@ class VoteApp extends React.Component {
                             <VoteSurvey
                                 handleFoodChoice={this.handleFoodChoice}
                                 handleLocationChoice={this.handleLocationChoice}
-                                hasLocationChoice={this.state.hasLocationChoice}
                                 handleRestaurantChoice={this.handleRestaurantChoice}
+                                handleGoogleSearch={this.handleGoogleSearch}
                                 handleVote={this.handleVote}
                             />
                         </div>

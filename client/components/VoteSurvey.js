@@ -28,10 +28,9 @@ class VoteSurvey extends React.Component {
                 />
                 <p> at </p>
                 <RestaurantSearchBar
-                    hasLocationChoice={this.props.hasLocationChoice}
                     handleRestaurantChoice={this.props.handleRestaurantChoice}
                 />
-                <Button bsSize="large" className="main-button" onClick={() => {this.props.handleVote()}}> Vote! </Button>
+                <Button bsSize="large" className="main-button" onClick={() => {this.props.handleGoogleSearch()}}> Vote! </Button>
             </div>
         );
     }
