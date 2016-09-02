@@ -20,10 +20,13 @@ searchGooglePlaces.getRestaurantList = function(params){
     body: '{\n  "title": "Michael T\'s GooglePlaces",\n  "content": "I LOVE LAMP!"\n}' };
 
 
-  request(options, function (error, response, body) {
-    if (error) throw new Error(error);
-      console.log("Inside of GooglePlacesAPI, this is the body: "body);
-      return response;
+  request(options, function(error, response, body) {    
+    if (error) {
+      console.log('Error inside searchController inside request: ',error);
+    } else {
+      console.log('Success inside searchController inside request: response is', response);
+      return response
+    }
   });
 }
 
