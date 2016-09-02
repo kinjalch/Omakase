@@ -1,9 +1,9 @@
 var auth = require('.auth');
 var request = require("request");
 
-var searchGooglePlaces = module.exports;
+var searchGoogleModel = module.exports;
 
-searchGooglePlaces.getRestaurantList = function(params){
+searchGoogleModel.getRestaurantList = function(params){
   var location = params.location;
 
   var options = { method: 'GET',

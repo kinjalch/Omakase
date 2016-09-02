@@ -1,6 +1,6 @@
-var searchGooglePlacesModel = require('../model/searchGooglePlaces.model.js');
+var searchGooglePlacesModel = require('../model/searchGoogle.model.js');
 
-exports.searchGooglePlaces = {
+exports.searchGooglePlacesModel = {
 	getRestaurantList: getRestaurantList
 }
 
