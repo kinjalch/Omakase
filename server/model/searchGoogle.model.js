@@ -1,4 +1,4 @@
-var auth = require('.auth');
+var auth = require('./../../.auth');
 var request = require("request");
 
 var searchGoogleModel = module.exports;
