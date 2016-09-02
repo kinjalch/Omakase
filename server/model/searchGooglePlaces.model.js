@@ -5,8 +5,8 @@ var searchGooglePlaces = module.exports;
 
 searchGooglePlaces.getRestaurantList = function(params){
   var dish = params.location;
-  var location = params.foodType;
-  var fullSearchTerm = dish + " in " + location;
+  var location = params.restaurant;
+  var fullSearchTerm = restaurant + " in " + location;
 
   var options = { method: 'GET',
     url: 'https://maps.googleapis.com/maps/api/place/textsearch/xml',
