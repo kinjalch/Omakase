@@ -19,7 +19,7 @@ app.get('*', function (request, response){
   response.sendFile(path.resolve('./client', 'index.html'));
 });
 
-app.use('/api/vote', googleSearchRouter);
+app.use('/api/google', searchGoogleRouter);
 app.use('/api/user', userRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/dish', dishRouter);
