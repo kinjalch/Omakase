@@ -1,4 +1,4 @@
-var auth = require('.Auth');
+var auth = require('.auth');
 var request = require("request");
 
 var searchGooglePlaces = module.exports;
@@ -12,7 +12,7 @@ searchGooglePlaces.getRestaurantList = function(params){
     url: 'https://maps.googleapis.com/maps/api/place/textsearch/xml',
     qs: 
      { query: fullSearchTerm,
-       key: 'AIzaSyBKzBInzbbwqbFWDpH5aqy8I73k3j4XiRM\t  ',
+       key: auth.googlePlacesKey + '\t  ',
        type: 'restaurant',
        opennow: 'true',
        fields: 'results (formatted_address, name, opening_hours/open_now, photos)'   },
