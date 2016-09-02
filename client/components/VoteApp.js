@@ -20,6 +20,7 @@ class VoteApp extends React.Component {
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
         this.handleLocationChoice = this.handleLocationChoice.bind(this);
         this.handleRestaurantChoice = this.handleRestaurantChoice.bind(this);
+        this.handleGoogleSearch = this.handleGoogleSearch.bind(this);
         this.handleVote = this.handleVote.bind(this);
     }
 
@@ -37,6 +38,10 @@ class VoteApp extends React.Component {
     handleRestaurantChoice(choice) {
         this.setState({restaurant: choice});
         this.setState({error: false});
+    }
+
+    handleGoogleSearch() {
+        // axios.get('api/google/Resta')
     }
 
     handleVote() {

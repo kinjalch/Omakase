@@ -13,4 +13,3 @@ function getRestaurantList(req, res) {
 		res.status(500).end('Error in getRestaurantList', err)
 	})
 }
-
