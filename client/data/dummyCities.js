@@ -31,60 +31,6 @@ const cityNames = [
     },
     {
         value: {
-            city: 'Dallas, TX'
-        },
-        label: 'Dallas, TX'
-    },
-    {
-        value: {
-            city: 'Denver, CO'
-        },
-        label: 'Denver, CO'
-    },
-    {
-        value: {
-            city: 'Detroit, MI'
-        },
-        label: 'Detroit, MI'
-    },
-    {
-        value: {
-            city: 'Houston, TX'
-        },
-        label: 'Houston, TX'
-    },
-    {
-        value: {
-            city: 'Indianapolis, IN'
-        },
-        label: 'Indianapolis, IN'
-    },
-    {
-        value: {
-            city: 'Jacksonville, FL'
-        },
-        label: 'Jacksonville, FL'
-    },
-    {
-        value: {
-            city: 'Los Angeles, CA'
-        },
-        label: 'Los Angeles, CA'
-    },
-    {
-        value: {
-            city: 'Memphis, TN'
-        },
-        label: 'Memphis, TN'
-    },
-    {
-        value: {
-            city: 'Nashville, TN'
-        },
-        label: 'Nashville, TN'
-    },
-    {
-        value: {
             city: 'New York, NY'
         },
         label: 'New York, NY'
@@ -93,7 +39,6 @@ const cityNames = [
         value: {
             city: 'Oklahoma City, OK'
         },
-        label: 'Oklahoma City, OK'
     },
     {
         value: {
