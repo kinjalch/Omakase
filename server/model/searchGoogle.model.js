@@ -12,8 +12,7 @@ searchGoogleModel.getRestaurantList = function(params, res) {
         qs: {
             query: query,
             key: 'AIzaSyBKzBInzbbwqbFWDpH5aqy8I73k3j4XiRM',
-            type: 'restaurant',
-            fields: 'results (formatted_address, name, opening_hours/open_now, photos)'
+            type: 'restaurant'
         }
     };
 
