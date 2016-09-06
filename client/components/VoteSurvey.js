@@ -21,7 +21,7 @@ const VoteSurvey = (props) => {
             <p> at </p>
             <RestaurantSearchBar
                 hasLocationChoice={props.hasLocationChoice}
-                handleRestaurantChoice={props.handleRestaurantChoice}
+                handleRestaurantQuery={props.handleRestaurantQuery}
             />
             <Button bsSize="large" className="main-button" onClick={() => {props.handleGoogleSearch()}}> Search For Restaurants </Button>
         </div>

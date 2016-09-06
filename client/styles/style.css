@@ -1,5 +1,6 @@
 body {
     height: 100vh;
+    letter-spacing: 1.5px;
 }
 
 .container-fluid {
@@ -80,6 +81,11 @@ body {
 .about-content {
     margin-top: 80px;
     color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,6 +111,11 @@ body {
 .vote-survey p {
     font-size: 1.5em;
     margin-top: 5px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .arrow {
@@ -113,6 +124,11 @@ body {
     top: 220px;
     font-size: 5em;
     color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .arrow:hover {
@@ -122,6 +138,11 @@ body {
 
 .main-content p {
     color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
     letter-spacing: 2px;
     font-size: 2em;
     margin-bottom: 35px;
@@ -154,6 +175,11 @@ body {
 
 .vote-confirm {
     color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .input-bar {
@@ -181,6 +207,11 @@ body {
 
 .restaurant-content {
     margin-top: 80px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .restaurant-results {
@@ -191,13 +222,14 @@ body {
 
 .restaurant-result {
     margin: 10px;
-    border: 2px solid black;
-    background-color: transparent;
+    border: 2px solid white;
+    background-color: white;
     width: 90%;
+    color: black;
 }
 
 .restaurant-result:hover {
-    border: 2px solid white;
+    border: 2px solid black;
     cursor: pointer;
 }
 
