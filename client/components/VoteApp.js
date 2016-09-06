@@ -69,6 +69,13 @@ class VoteApp extends React.Component {
         this.setState({restaurant: result});
     }
 
+    navigateToVoteSurvey() {
+        this.setState({foodType: null});
+        this.setState({location: null});
+        this.setState({restaurantQuery: null});
+        this.setState({page: 'voteSurvey'});
+    }
+
     handleVote() {
         var addressComponents = this.state.restaurant.formatted_address.split(',');
 
@@ -135,22 +142,37 @@ class VoteApp extends React.Component {
             );
         }
         if (this.state.page === 'confirmRestaurant') {
-            return (
-                <div className="container-fluid">
-                    <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
-                    <div className="main-container">
-                        <div className="main-content restaurant-content">
-                            <h1> Which restaurant did you mean? </h1>
-                            <div className="restaurant-results">
-                                {this.state.restaurantResults.map((result, index) => (
-                                    <RestaurantResult key={index} result={result} handleRestaurantChoice={this.handleRestaurantChoice}/>
-                                ))}
+            if (this.state.restaurantResults.length === 0) {
+                return (
+                    <div className="container-fluid">
+                        <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
+                        <div className="main-container">
+                            <div className="main-content restaurant-content">
+                                <h1> Sorry, we did not find what you were looking for... </h1>
+                                <Button bsSize="large" className="main-button" onClick={() => {this.navigateToVoteSurvey()}}> Try Again </Button>
                             </div>
-                            <Button bsSize="large" className="main-button" onClick={() => {this.handleVote()}}> Vote! </Button>
                         </div>
                     </div>
-                </div>
-            );
+                );
+            } else {
+                return (
+                    <div className="container-fluid">
+                        <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
+                        <div className="main-container">
+                            <div className="main-content restaurant-content">
+                                <h1> Which restaurant did you mean? </h1>
+                                <div className="restaurant-results">
+                                    {this.state.restaurantResults.map((result, index) => (
+                                        <RestaurantResult key={index} result={result} handleRestaurantChoice={this.handleRestaurantChoice}/>
+                                    ))}
+                                </div>
+                                <Button bsSize="large" className="main-button" onClick={() => {this.handleVote()}}> Vote! </Button>
+                            </div>
+                        </div>
+                    </div>
+                );
+
+            }
         }
         if (this.state.page === 'userProfile') {
             return (
@@ -158,7 +180,8 @@ class VoteApp extends React.Component {
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
                         <div className="main-content">
-                            <h1 className="vote-confirm"> You voted that {this.state.restaurant.name} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label} </h1>
+                            <h1 className="vote-confirm"> You voted that {this.state.restaurant.name} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
+                            <Button bsSize="large" className="main-button" onClick={() => {this.navigateToVoteSurvey()}}> Vote For More </Button>
                         </div>
                     </div>
                 </div>

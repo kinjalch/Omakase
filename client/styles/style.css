@@ -173,9 +173,16 @@ body {
 .restaurant-result {
     margin: 10px;
     border: 2px solid black;
+    background-color: transparent;
+    width: 90%;
 }
 
 .restaurant-result:hover {
     border: 2px solid white;
     cursor: pointer;
+}
+
+.chosen {
+    background: white;
+    color: black;
 }
