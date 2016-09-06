@@ -77,9 +77,28 @@ body {
 }
 
 .about-content {
-    margin-top: 150px;
-    text-align: center;
+    margin-top: 80px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-content h1 {
+    font-size: 3em;
+}
+
+.about-content p {
+    font-size: 1.5em;
+}
+
+.definition-container {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.definition {
+    margin-left: 20px;
 }
 
 .vote-survey p {
@@ -134,4 +153,20 @@ body {
 
 .vote-confirm {
     color: white;
+}
+
+.creators {
+    display: flex;
+}
+
+.creator {
+    text-align: center;
+    margin: 20px;
+}
+
+.creator-image {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    margin-bottom: 10px;
 }
