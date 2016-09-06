@@ -204,6 +204,7 @@ body {
 .chosen {
     background: white;
     color: black;
+}
 
 .creators {
     display: flex;
