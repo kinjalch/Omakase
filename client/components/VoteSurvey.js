@@ -23,7 +23,7 @@ const VoteSurvey = (props) => {
                 hasLocationChoice={props.hasLocationChoice}
                 handleRestaurantChoice={props.handleRestaurantChoice}
             />
-            <Button bsSize="large" className="main-button" onClick={() => {props.handleVote()}}> Vote! </Button>
+            <Button bsSize="large" className="main-button" onClick={() => {props.handleGoogleSearch()}}> Search For Restaurants </Button>
         </div>
     );
 }
