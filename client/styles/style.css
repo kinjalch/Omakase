@@ -253,3 +253,7 @@ body {
     border-radius: 100%;
     margin-bottom: 10px;
 }
+#map {
+  height: 1024px;
+  width: 768px;  
+}
