@@ -1,6 +1,6 @@
 var router = require('express').Router();
 var controller = require('../controller/location.controller.js');
 
-router.post('/getLocation', controller.convertAddress);
+router.get('/getLocation', controller.addressModel.convertAddress);
 
 module.exports = router;

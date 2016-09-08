@@ -3,23 +3,26 @@ var request = require('request');
 var addressModel = module.exports;
 
 addressModel.convertAddress = function(params, res) {
-  console.log(params);
+  // console.log(params);
+  console.log(params)
   var options = {
     method: 'GET',
     url: 'https://maps.googleapis.com/maps/api/geocode/json',
     qs: {
-        query: '',
+        address: params.address,
         key: 'AIzaSyBKzBInzbbwqbFWDpH5aqy8I73k3j4XiRM'
     }
   };
 
+  //sends back longitude/latitude to front end
   request(options, function(error, response, body) {
     if(error) {
       console.log(error)
       res.status(500).send(error);
     } else {
-      console.log('body inside addressModel.js', body)
-      res.send(body);
+      var parsed = JSON.parse(body);
+      console.log('body inside addressModel.js', parsed.results[0].geometry.location)
+      res.send(parsed.results[0].geometry.location);
     }
   });
 }

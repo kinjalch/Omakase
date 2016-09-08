@@ -1,9 +1,10 @@
 var addressModel = require('../model/addressModel.js');
 
 exports.addressModel = {
-  convertAddress: convertAddress;
+  convertAddress: convertAddress
 }
 
 function convertAddress(req, res) {
-  addressModel.convertAddress(req.body, res);
+  // console.log('req inside location.controller', req)
+  addressModel.convertAddress(req.query, res);
 }
