@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import VoteSurvey from './VoteSurvey';
 import RestaurantResult from './RestaurantResult';
 import { Button } from 'react-bootstrap';
+import PhotoUpload from './PhotoUpload';
 
 class VoteApp extends React.Component {
     constructor(props) {
@@ -124,6 +125,8 @@ class VoteApp extends React.Component {
                                 handleGoogleSearch={this.handleGoogleSearch}
                                 handleVote={this.handleVote}
                             />
+                              <PhotoUpload />
+          
                         </div>
                     </div>
                 </div>
