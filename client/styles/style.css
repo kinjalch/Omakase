@@ -173,6 +173,10 @@ body {
     width: 300px;
 }
 
+.photoUploader {
+  justify-content: center;
+}
+
 .vote-confirm {
     color: white;
     text-shadow:
