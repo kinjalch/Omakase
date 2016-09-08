@@ -1,13 +1,23 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-var DirectionButton = (props) => (
+const DirectionButton = (props) =>{
+  return(
   //should redirect you to maps
-  <button onClick={()=>{console.log('Button Clicked')} bsStyle="primary"}>
-    <p>DirectionButton</p>
-  </button>
+  <div>
+    <Button
+      bsStyle='primary'
+      onClick={()=>{
+        console.log('Button Clicked');
+        window.location="http://maps.apple.com/?q=34.019269,-118.494344"}}
+      >
+        <p>DirectionButton</p>
+      </Button>
+  </div>
 );
+}
 
+export default DirectionButton;
 // props.result.address
 // props.result.zipcode
 
