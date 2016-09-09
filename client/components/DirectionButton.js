@@ -3,8 +3,8 @@ import { Button } from 'react-bootstrap';
 
 const DirectionButton = (props) =>{
 
-  const lat = "34.019454"
-  const lng = "-118.491191"
+  const lat = "34.022073"
+  const lng = "-118.493914"
 
   return(
   //should redirect you to maps
@@ -13,7 +13,7 @@ const DirectionButton = (props) =>{
       bsStyle='default'
       className='direction-button'
       onClick={()=>{
-        window.location=`http://maps.apple.com/?q=spinfish+poke+house`}}
+        window.location=`http://maps.apple.com/?q=${lat},${lng}`}}
       >
         <p>Get Directions</p>
       </Button>

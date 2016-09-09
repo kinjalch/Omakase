@@ -7,6 +7,11 @@ var FoodResult = (props) => (
             <h3>{props.result.restaurant_name}</h3>
             <div>{props.result.address}</div>
             <div>{props.result.location_name} {props.result.zipcode}</div>
+
+            <h3>Spinfish Poke House</h3>
+            <div>808 Wilshire Blvd #100, Santa Monica, CA</div>
+            <div>{props.result.location_name} 90401</div>
+
             <DirectionButton />
         </Thumbnail>
     </div>
