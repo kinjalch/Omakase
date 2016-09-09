@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-//var auth = require('./../../.auth');
->>>>>>> photoUpload
 var request = require("request");
 
 var searchGoogleModel = module.exports;

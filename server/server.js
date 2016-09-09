@@ -10,6 +10,7 @@ var userRouter = require('./router/userRouter.js');
 var dishRouter = require('./router/dishRouter.js');
 var searchGoogleRouter = require('./router/searchGooglePlacesRouter.js');
 var googleLocation = require('./router/googleLocation.js');
+var photoRouter = require('./router/photoRouter.js');
 
 app.use(cors());
 app.use(bodyParse.json({limit: '50mb'}));
@@ -21,6 +22,7 @@ app.use('/api/user', userRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/dish', dishRouter);
 app.use('/api/location', googleLocation);
+app.use('/api/photo', photoRouter);
 
 app.get('*', function (request, response){
   response.sendFile(path.resolve('./client', 'index.html'));

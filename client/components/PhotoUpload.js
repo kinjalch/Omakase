@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-
+import axios from 'axios';
 
 class PhotoUpload extends React.Component {
   constructor(props) {
@@ -10,6 +10,18 @@ class PhotoUpload extends React.Component {
       photoPreviewUrl: ''
     };
 
+  }
+
+  photoSubmit(e) {
+    e.preventDefault();
+    //console.log("sliced url: ",  this.state.photoPreviewUrl);
+    axios.post('/api/photo/upload', {image: this.state.photoPreviewUrl.slice(23)})
+      .then(function(response) {
+        console.log("Photo uploaded successfully", response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   handleSubmit(e) {
@@ -40,10 +52,9 @@ class PhotoUpload extends React.Component {
     let previewPhoto = null;
 
     if (photoPreviewUrl) {
-      previewPhoto = (<img src={photoPreviewUrl} />);}
-    // } else {
-    //   $photoPreview = (<div className="previewText">Please select an Image for Preview</div>);
-    // }
+      previewPhoto = (<img src={photoPreviewUrl} />);
+    }
+
     return (
      <div className="photoUploader">
       <form onChange={(e) => this.handleChange(e)}>
@@ -53,7 +64,7 @@ class PhotoUpload extends React.Component {
           className="fileInput"
           onChange={(e) => this.photoChange(e)}
         />
-        <Button type='submit' onClick={(e)=>this.handleSubmit(e)}>
+        <Button type='submit' onClick={(e)=>this.photoSubmit(e)}>
           Upload photo
         </Button>
      </form>
