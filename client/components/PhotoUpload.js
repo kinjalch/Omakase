@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import {render} from 'react-dom';
 
 class PhotoUpload extends React.Component {
   constructor(props) {
@@ -9,26 +10,27 @@ class PhotoUpload extends React.Component {
       photo: '',
       photoPreviewUrl: ''
     };
-
   }
 
   photoSubmit(e) {
+    let that = this;
     e.preventDefault();
     //console.log("sliced url: ",  this.state.photoPreviewUrl);
+    // if (this.state.photoPreviewUrl) {
     axios.post('/api/photo/upload', {image: this.state.photoPreviewUrl.slice(23)})
       .then(function(response) {
         console.log("Photo uploaded successfully", response);
+        that.setState({
+          photo: '',
+          photoPreviewUrl: ''
+        });
+        render(<div>Photo successfully uploaded!</div>, document.getElementById('loadsuccess'));
       })
       .catch(function(error) {
         console.log(error);
       });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    //console.log('photo upload change: ', this.state);
-    console.log("this.state after submit: ", this.state);
-  }
 
   photoChange(e) {
     e.preventDefault();
@@ -43,8 +45,8 @@ class PhotoUpload extends React.Component {
       });
     }
 
-    //console.log("this.state ", this.state.photoPreviewUrl);
     photoReader.readAsDataURL(photoFile);
+
   }
 
   render() {
@@ -60,7 +62,6 @@ class PhotoUpload extends React.Component {
       <form onChange={(e) => this.handleChange(e)}>
         <input
           type='file'
-          // value={this.state.photo}
           className="fileInput"
           onChange={(e) => this.photoChange(e)}
         />
@@ -68,9 +69,10 @@ class PhotoUpload extends React.Component {
           Upload photo
         </Button>
      </form>
-          <div className="photo">
+          <div id="photo">
             {previewPhoto}
           </div>
+          <div id="loadsuccess"></div>
       </div>
     );
   }
