@@ -259,5 +259,10 @@ body {
 }
 #map {
   height: 768px;
-  width: 1024px;  
+  width: 1024px;
+}
+
+.direction-button{
+  height:50px;
+  background-color: black;
 }
