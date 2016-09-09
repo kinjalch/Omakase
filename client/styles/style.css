@@ -250,7 +250,6 @@ body {
     text-align: center;
     margin: 20px;
 }
-
 .creator-image {
     height: 200px;
     width: 200px;
@@ -265,4 +264,6 @@ body {
 .direction-button{
   height:50px;
   background-color: black;
+  height: 600px;
+  width: 1280px;
 }
