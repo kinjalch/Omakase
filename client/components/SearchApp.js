@@ -17,7 +17,8 @@ class SearchApp extends React.Component {
             navMessage: 'Go Vote!',
             location: null,
             foodType: null,
-            result: null
+            result: null,
+            Authorization: ''
         };
 
         this.handleLocationChoice = this.handleLocationChoice.bind(this);
