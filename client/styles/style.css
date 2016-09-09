@@ -261,5 +261,8 @@ body {
   width: 1280px;
 }
 
-.directions{
+.direction-button{
+  height:50px;
+  background-color: black;
+
 }

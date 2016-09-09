@@ -103,8 +103,7 @@ class BestOf extends React.Component {
           </svg>
            &nbsp; { this.state.markers[ref].info }
            <br />
-           <DirectionButton position={this.state.markers[ref].position}></DirectionButton>
-          Votes: { Math.floor(Math.random() * (100 - 80)) + 80 }
+          Votes: { Math.floor(Math.random() * (100 - 70)) + 80 }
         </div>
 
       </InfoWindow>
