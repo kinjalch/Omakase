@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './NavBar';
 import { GoogleMap, GoogleMapLoader, InfoWindow, Marker, SearchBox } from "react-google-maps";
 import update from "react-addons-update";
+import DirectionButton from './DirectionButton'
 
 class BestOf extends React.Component {
   constructor(props) {
@@ -101,7 +102,8 @@ class BestOf extends React.Component {
             1-.4 1-1l-.5-8h1.3c.3 0 .5-.2.5-.5V0h-.4z"/>
           </svg>
            &nbsp; { this.state.markers[ref].info }
-          <br />
+           <br />
+           <DirectionButton position={this.state.markers[ref].position}></DirectionButton>
           Votes: { Math.floor(Math.random() * (100 - 80)) + 80 }
         </div>
 
